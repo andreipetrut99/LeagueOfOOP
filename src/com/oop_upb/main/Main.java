@@ -1,7 +1,12 @@
 package com.oop_upb.main;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("First commit to github for test.");
+public final class Main {
+    private Main() {
+        //just to trick checkstyle
+    }
+    public static void main(final String[] args) {
+        GameInputLoader gameInputLoader = new GameInputLoader(args[0], args[1]);
+        GameInput gameInput = gameInputLoader.load();
+
     }
 }

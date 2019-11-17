@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="FileIO" level="project" />
+    <orderEntry type="library" name="checkstyle-7.3-all" level="project" />
   </component>
 </module>
