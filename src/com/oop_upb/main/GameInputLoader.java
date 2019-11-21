@@ -1,6 +1,6 @@
 package com.oop_upb.main;
 
-import com.oop_upb.players.Player;
+import com.oop_upb.players.HeroInfo;
 import fileio.FileSystem;
 
 import java.io.IOException;
@@ -21,8 +21,8 @@ public class GameInputLoader {
         int width = 0;
         int rounds = 0;
         int playersNumber = 0;
-        String[][] terrainType = new String[0][];
-        List<Player> players = new LinkedList<Player>();
+        String[] terrainType = new String[0];
+        List<HeroInfo> players = new LinkedList<HeroInfo>();
         List<String> moves = new LinkedList<String>();
 
         try {
@@ -30,17 +30,15 @@ public class GameInputLoader {
 
             width = fs.nextInt();
             length = fs.nextInt();
-            terrainType = new String[width][length];
+            terrainType = new String[width];
             for (int i = 0; i < width; i++) {
-                for (int j = 0; j < length; j++) {
-                    terrainType[i][j] = fs.nextWord();
-                }
+                terrainType[i] = fs.nextWord();
             }
 
             playersNumber = fs.nextInt();
 
             for (int i = 0; i < playersNumber; i++) {
-                players.add(new Player(fs.nextWord(),
+                players.add(new HeroInfo(fs.nextWord(),
                         fs.nextInt(), fs.nextInt()));
             }
 
