@@ -10,6 +10,8 @@ public abstract class Hero {
     private String landType;
     private String heroType;
     private int overtimeDamage;
+    private boolean incapacitated = false;
+    private int incapacitatedRounds;
     private int affectedRounds;
     private boolean overtimeAffected = false;
 
@@ -46,6 +48,23 @@ public abstract class Hero {
         }
     }
 
+    public void setIncapacitation(int incapacitatedRounds) {
+        this.incapacitatedRounds = incapacitatedRounds;
+        this.incapacitated = true;
+    }
+
+    public void loopIncapactiation() {
+        if (this.incapacitated) {
+            incapacitatedRounds -= 1;
+        }
+        if (incapacitatedRounds == 0) {
+            incapacitated = false;
+        }
+    }
+
+    public boolean isIncapacitated() {
+        return incapacitated;
+    }
 
     public String getHeroType() {
         return heroType;

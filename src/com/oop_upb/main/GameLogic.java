@@ -40,6 +40,8 @@ public class GameLogic {
             moveHeroes(moves.get(0));
             moves.remove(0);
             addOvertimeDamage();
+            decreaseIncapacitation();
+
 
             // Fight
             for (int i = 0; i < playersNumber - 1; i++) {
@@ -48,7 +50,6 @@ public class GameLogic {
                         if (heroes.get(i).getX() == heroes.get(j).getX()
                                 && heroes.get(i).getY() == heroes.get(j).getY()) {
                             // se ataca intre ei
-                            System.out.println("sal");
                             heroes.get(i).attack(heroes.get(j), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
                             heroes.get(j).attack(heroes.get(i), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
                             if (!heroes.get(i).isAlive()) {
@@ -70,6 +71,12 @@ public class GameLogic {
         }
     }
 
+    public void decreaseIncapacitation() {
+        for (Hero hero : heroes) {
+            hero.loopIncapactiation();
+        }
+    }
+
     private int calcXp(int levelLooser, int levelWinner) {
         return Math.max((200 - ((levelWinner - levelLooser) * 40)), 0);
     }
@@ -79,21 +86,23 @@ public class GameLogic {
         // Move every player by the rules of string move
         for (Hero hero : heroes) {
             heroIndex++;
-            switch (String.valueOf(move.charAt(heroIndex))) {
-                case "U":
-                    hero.setX(hero.getX() - 1);
-                    break;
-                case "D":
-                    hero.setX(hero.getX() + 1);
-                    break;
-                case "L":
-                    hero.setY(hero.getY() - 1);
-                    break;
-                case "R":
-                    hero.setY(hero.getY() + 1);
-                    break;
-                default:
-                    break;
+            if (!hero.isIncapacitated()) {
+                switch (String.valueOf(move.charAt(heroIndex))) {
+                    case "U":
+                        hero.setX(hero.getX() - 1);
+                        break;
+                    case "D":
+                        hero.setX(hero.getX() + 1);
+                        break;
+                    case "L":
+                        hero.setY(hero.getY() - 1);
+                        break;
+                    case "R":
+                        hero.setY(hero.getY() + 1);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
