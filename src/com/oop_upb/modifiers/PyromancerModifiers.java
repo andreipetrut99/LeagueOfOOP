@@ -7,22 +7,22 @@ import com.oop_upb.heroes.Wizard;
 
 public class PyromancerModifiers implements Modifiers {
     @Override
-    public int modify(Knight knight) {
+    public float modify(Knight knight) {
         return 0;
     }
 
     @Override
-    public int modify(Rogue rogue) {
+    public float modify(Rogue rogue) {
         return 0;
     }
 
     @Override
-    public int modify(Wizard wizard) {
+    public float modify(Wizard wizard) {
         return 0;
     }
 
     @Override
-    public int modify(Pyromancer pyromancer) {
+    public float modify(Pyromancer pyromancer) {
         return 0;
     }
 }

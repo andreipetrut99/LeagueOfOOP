@@ -6,10 +6,6 @@ public class Rogue extends Hero {
          super(x, y, landType);
      }
 
-    @Override
-    public int getHp() {
-        return 0;
-    }
 
     @Override
     public void setHp(int hp) {
@@ -17,8 +13,12 @@ public class Rogue extends Hero {
     }
 
     @Override
-    public void attack(Hero hero) {
+    public void addLevelHp() {
 
     }
 
+    @Override
+    public void attack(Hero hero, char landType) {
+
+    }
 }

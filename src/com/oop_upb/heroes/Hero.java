@@ -8,19 +8,23 @@ public abstract class Hero {
     private int hp;
     private boolean isAlive = true;
     private String landType;
+    private String heroType;
     private int overtimeDamage;
     private int affectedRounds;
     private boolean overtimeAffected = false;
 
 
-    public Hero(final int x, final int y, final String landType) {
+    public Hero(final int x, final int y, final String heroType) {
         this.x = x;
         this.y = y;
-        this.landType = landType;
+        this.heroType = heroType;
     }
 
     public void setInstantDamage(int damage) {
         hp -= damage;
+        if (hp <= 0) {
+            this.isAlive = false;
+        }
     }
 
     public void setOvertimeDamage(final int damage, final int rounds) {
@@ -31,13 +35,22 @@ public abstract class Hero {
 
     public void addOvertimeDamage() {
         if (overtimeAffected) {
-            this.setHp(this.getHp() - overtimeDamage);
+            setInstantDamage(overtimeDamage);
             affectedRounds--;
             if (affectedRounds == 0) {
                 overtimeAffected = false;
             }
         }
+        if (hp <= 0) {
+            this.isAlive = false;
+        }
     }
+
+
+    public String getHeroType() {
+        return heroType;
+    }
+
 
     public int getLevel() {
         return level;
@@ -48,10 +61,6 @@ public abstract class Hero {
         return isAlive;
     }
 
-    public String getLandType() {
-        return landType;
-    }
-
     public int getX() {
         return x;
     }
@@ -60,12 +69,19 @@ public abstract class Hero {
         return y;
     }
 
-    public void checkLevel() {
+    public void addXp(int xp) {
+        this.xp += xp;
+        xpLevelUp = 250 + (level * 50);
         if (xp >= xpLevelUp) {
             level += 1;
             xp -= xpLevelUp;
             xpLevelUp = 250 + (level * 50);
+            addLevelHp();
         }
+    }
+
+    public int getXp() {
+        return this.xp;
     }
 
     public void setY(int y) {
@@ -76,7 +92,14 @@ public abstract class Hero {
         this.x = x;
     }
 
-    public abstract int getHp();
-    public abstract void setHp(int hp);
-    public abstract void attack(Hero hero);
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public int getHp() {
+        return this.hp;
+    }
+
+    public abstract void addLevelHp();
+    public abstract void attack(Hero hero, char landType);
 }

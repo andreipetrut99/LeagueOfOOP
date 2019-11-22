@@ -3,6 +3,8 @@ package com.oop_upb.main;
 import com.oop_upb.heroes.Hero;
 import com.oop_upb.heroes.HeroFactory;
 import com.oop_upb.heroes.Pyromancer;
+import com.oop_upb.modifiers.Modifiers;
+import com.oop_upb.modifiers.PyromancerModifiers;
 import com.oop_upb.players.HeroInfo;
 
 import java.util.LinkedList;
@@ -14,8 +16,8 @@ public class GameLogic {
     int rounds = 0;
     int playersNumber = 0;
     String[] terrainType = new String[0];
-    List<HeroInfo> herosInfo = new LinkedList<HeroInfo>();
-    List<Hero> heros = new LinkedList<Hero>();
+    List<HeroInfo> heroesInfo = new LinkedList<HeroInfo>();
+    List<Hero> heroes = new LinkedList<Hero>();
     List<String> moves = new LinkedList<String>();
 
     public GameLogic(GameInput gameInput) {
@@ -24,47 +26,58 @@ public class GameLogic {
         rounds = gameInput.getRounds();
         playersNumber = gameInput.getPlayersNumber();
         terrainType = gameInput.getTerrainType();
-        herosInfo = gameInput.getPlayers();
+        heroesInfo = gameInput.getPlayers();
         moves = gameInput.getMoves();
     }
 
+    public List<Hero> getHeroes() {
+        return heroes;
+    }
+
     public void startGame() {
-        this.createHeros();
+        this.createHeroes();
         for (int round = 0; round < rounds; round++) {
-            moveHeros(moves.get(0));
+            moveHeroes(moves.get(0));
             moves.remove(0);
             addOvertimeDamage();
 
             // Fight
-
             for (int i = 0; i < playersNumber - 1; i++) {
                 for (int j = i + 1; j < playersNumber; j++) {
-                    if (heros.get(i).isAlive() && heros.get(j).isAlive()) {
-                        if (heros.get(i).getX() == heros.get(j).getX()
-                                && heros.get(i).getY() == heros.get(j).getY()) {
+                    if (heroes.get(i).isAlive() && heroes.get(j).isAlive()) {
+                        if (heroes.get(i).getX() == heroes.get(j).getX()
+                                && heroes.get(i).getY() == heroes.get(j).getY()) {
                             // se ataca intre ei
-                            heros.get(i).attack(heros.get(j));
-                            heros.get(j).attack(heros.get(i));
+                            System.out.println("sal");
+                            heroes.get(i).attack(heroes.get(j), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
+                            heroes.get(j).attack(heroes.get(i), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
+                            if (!heroes.get(i).isAlive()) {
+                                heroes.get(j).addXp(calcXp(heroes.get(i).getLevel(), heroes.get(j).getLevel()));
+                            }
+                            if (!heroes.get(j).isAlive()) {
+                                heroes.get(i).addXp(calcXp(heroes.get(j).getLevel(), heroes.get(i).getLevel()));
+                            }
                         }
                     }
                 }
             }
-
-            System.out.println(heros.get(0).getHp());
-            System.out.println(heros.get(1).getHp());
         }
     }
 
-    public void addOvertimeDamage() {
-        for (Hero hero : heros) {
+    private void addOvertimeDamage() {
+        for (Hero hero : heroes) {
             hero.addOvertimeDamage();
         }
     }
 
-    public void moveHeros(String move) {
+    private int calcXp(int levelLooser, int levelWinner) {
+        return Math.max((200 - ((levelWinner - levelLooser) * 40)), 0);
+    }
+
+    private void moveHeroes(String move) {
         int heroIndex = -1;
         // Move every player by the rules of string move
-        for (Hero hero : heros) {
+        for (Hero hero : heroes) {
             heroIndex++;
             switch (String.valueOf(move.charAt(heroIndex))) {
                 case "U":
@@ -85,10 +98,10 @@ public class GameLogic {
         }
     }
 
-    public void createHeros() {
+    public void createHeroes() {
         HeroFactory heroFactory = HeroFactory.getInstance();
-        for (HeroInfo heroInfo : herosInfo) {
-            heros.add(heroFactory.createHero(
+        for (HeroInfo heroInfo : heroesInfo) {
+            heroes.add(heroFactory.createHero(
                     heroInfo.getType(),
                     heroInfo.getRow(),
                     heroInfo.getColumn()));

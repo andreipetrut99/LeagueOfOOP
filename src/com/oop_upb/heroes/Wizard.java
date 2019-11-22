@@ -6,17 +6,17 @@ public class Wizard extends Hero {
     }
 
     @Override
-    public int getHp() {
-        return 0;
-    }
-
-    @Override
     public void setHp(int hp) {
 
     }
 
     @Override
-    public void attack(Hero hero) {
+    public void addLevelHp() {
+
+    }
+
+    @Override
+    public void attack(Hero hero, char landType) {
 
     }
 

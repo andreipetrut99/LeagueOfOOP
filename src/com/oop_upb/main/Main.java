@@ -1,5 +1,9 @@
 package com.oop_upb.main;
 
+import com.oop_upb.heroes.Hero;
+
+import java.util.List;
+
 /**
  * @author Andrei-Petrut Tita
  */
@@ -14,5 +18,9 @@ public final class Main {
         //Interactiune prin Factory, efecte prin double dispatch;
         GameLogic gameLogic = new GameLogic(gameInput);
         gameLogic.startGame();
+
+        List<Hero> heroes;
+        heroes = gameLogic.getHeroes();
+        gameInputLoader.print(heroes);
     }
 }

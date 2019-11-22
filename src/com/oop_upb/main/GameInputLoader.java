@@ -1,5 +1,6 @@
 package com.oop_upb.main;
 
+import com.oop_upb.heroes.Hero;
 import com.oop_upb.players.HeroInfo;
 import fileio.FileSystem;
 
@@ -55,5 +56,29 @@ public class GameInputLoader {
         return new GameInput(length, width, rounds,
                 playersNumber, players,
                 terrainType, moves);
+    }
+
+    public void print(List<Hero> heroes) {
+        try {
+            FileSystem fs = new FileSystem(mInputPath, mOutputPath);
+
+            for (Hero hero : heroes) {
+                if (!hero.isAlive()) {
+                    fs.writeWord(hero.getHeroType() + " " + "dead");
+                    fs.writeNewLine();
+                } else {
+                    fs.writeWord(hero.getHeroType() + " "
+                            + hero.getLevel() + " "
+                            + hero.getXp() + " "
+                            + hero.getHp() + " "
+                            + hero.getX() + " "
+                            + hero.getY());
+                    fs.writeNewLine();
+                }
+            }
+            fs.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

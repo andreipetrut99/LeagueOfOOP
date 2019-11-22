@@ -6,8 +6,8 @@ import com.oop_upb.heroes.Rogue;
 import com.oop_upb.heroes.Wizard;
 
 public interface Modifiers {
-    int modify(Knight knight);
-    int modify(Rogue rogue);
-    int modify(Wizard wizard);
-    int modify(Pyromancer pyromancer);
+    float modify(Knight knight);
+    float modify(Rogue rogue);
+    float modify(Wizard wizard);
+    float modify(Pyromancer pyromancer);
 }
