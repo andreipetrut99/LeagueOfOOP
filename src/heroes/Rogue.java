@@ -26,4 +26,9 @@ public class Rogue extends Hero {
     public void attack(Hero hero, char landType) {
 
     }
+
+    @Override
+    public float getUnmodifiedDamage(char landType) {
+        return 0;
+    }
 }

@@ -1,6 +1,8 @@
 package heroes;
 
 
+import java.rmi.MarshalException;
+
 public class Knight extends Hero {
     public Knight(int x, int y, String heroType) {
         super(x, y, heroType);
@@ -20,6 +22,14 @@ public class Knight extends Hero {
     @Override
     public int getMaxHp() {
         return (900 + (80 * getLevel()));
+    }
+
+    @Override
+    public float getUnmodifiedDamage(char landType) {
+        if (landType == 'L') {
+            return Math.round(1.15f * (200 + (30 * this.getLevel()) + 100 + (40 * this.getLevel())));
+        }
+        return 200 + (30 * this.getLevel()) + 100 + (40 * this.getLevel());
     }
 
     @Override
@@ -58,6 +68,7 @@ public class Knight extends Hero {
             slamDamage = slamDamage * 1.2f;
         }
 
+        enemy.setIncapacitation(1);
         enemy.setInstantDamage(Math.round(executeDamage));
         enemy.setInstantDamage(Math.round(slamDamage));
     }

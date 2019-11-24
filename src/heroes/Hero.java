@@ -122,4 +122,5 @@ public abstract class Hero {
     public abstract void resetHp();
     public abstract int getMaxHp();
     public abstract void attack(Hero hero, char landType);
+    public abstract float getUnmodifiedDamage(char landType);
 }

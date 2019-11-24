@@ -18,6 +18,7 @@ public class Pyromancer extends Hero {
         fireblastDamage = (350 + (50 * this.getLevel()));
         igniteInstantDamage = (150 + (20 * this.getLevel()));
         ignitePassiveDamage = (50 + (30 * this.getLevel()));
+
         if (terainType == 'V') {
             fireblastDamage = fireblastDamage * 1.25f;
             ignitePassiveDamage = ignitePassiveDamage * 1.25f;
@@ -45,6 +46,16 @@ public class Pyromancer extends Hero {
          enemy.setInstantDamage(Math.round(fireblastDamage));
          enemy.setInstantDamage(Math.round(igniteInstantDamage));
          enemy.setOvertimeDamage(Math.round(ignitePassiveDamage), 3);
+    }
+
+    @Override
+    public float getUnmodifiedDamage(char landType) {
+        if (landType == 'V') {
+            return  Math.round(1.25f * (350 + (50 * this.getLevel())))
+                    + Math.round(1.25f * (150 + (20 * this.getLevel())));
+        }
+        return (350 + (50 * this.getLevel()))
+                + (150 + (20 * this.getLevel()));
     }
 
     @Override
