@@ -91,7 +91,7 @@ public abstract class Hero {
     public void addXp(int xp) {
         this.xp += xp;
         xpLevelUp = 250 + (level * 50);
-        while (xp >= xpLevelUp) {
+        while (this.xp >= xpLevelUp) {
             level += 1;
             xpLevelUp = 250 + (level * 50);
             resetHp();

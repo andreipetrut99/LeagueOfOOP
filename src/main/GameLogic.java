@@ -34,6 +34,8 @@ public class GameLogic {
     public void startGame() {
         this.createHeroes();
         for (int round = 0; round < rounds; round++) {
+          //  System.out.println("Round: " + round);
+
             moveHeroes(moves.get(0));
             moves.remove(0);
             addOvertimeDamage();
@@ -47,6 +49,7 @@ public class GameLogic {
                         if (heroes.get(i).getX() == heroes.get(j).getX()
                                 && heroes.get(i).getY() == heroes.get(j).getY()) {
                             // se ataca intre ei
+
                             heroes.get(i).attack(heroes.get(j), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
                             heroes.get(j).attack(heroes.get(i), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
                             if (!heroes.get(i).isAlive()) {
@@ -59,8 +62,20 @@ public class GameLogic {
                     }
                 }
             }
-            System.out.println("1:" + heroes.get(0).getHp());
-            System.out.println("1:" + heroes.get(1).getHp());
+           /* for (Hero hero : heroes) {
+                *//*if (!hero.isAlive()) {
+                    System.out.println(hero.getHeroType() + " " + "dead");
+                } else *//*{
+                    System.out.println(hero.getHeroType() + " "
+                            + hero.getLevel() + " "
+                            + hero.getXp() + " "
+                            + hero.getHp() + " "
+                            + hero.getX() + " "
+                            + hero.getY());
+
+                }
+            }*/
+           // System.out.println("-----------END ROUND--------");
         }
     }
 

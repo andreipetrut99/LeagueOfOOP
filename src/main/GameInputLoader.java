@@ -75,10 +75,10 @@ public class GameInputLoader {
                     fs.writeNewLine();
                 }
             }
-            fs.writeNewLine();
             fs.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
