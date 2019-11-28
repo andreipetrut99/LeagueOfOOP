@@ -45,7 +45,7 @@ public class Pyromancer extends Hero {
 
          enemy.setInstantDamage(Math.round(fireblastDamage));
          enemy.setInstantDamage(Math.round(igniteInstantDamage));
-         enemy.setOvertimeDamage(Math.round(ignitePassiveDamage), 3);
+         enemy.setOvertimeDamage(Math.round(ignitePassiveDamage), 2);
     }
 
     @Override

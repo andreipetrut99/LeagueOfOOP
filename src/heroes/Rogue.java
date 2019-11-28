@@ -2,7 +2,7 @@ package heroes;
 
 public class Rogue extends Hero {
     private float unmodifiedDamage;
-    private static int backstabHits = 3;
+    private int backstabHits = 3;
     private boolean attacked = false;
      public Rogue(int x, int y, String landType) {
          super(x, y, landType);

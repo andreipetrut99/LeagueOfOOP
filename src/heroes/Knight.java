@@ -46,9 +46,6 @@ public class Knight extends Hero {
         }
         hpLimit = 500 * maxPercentage;
 
-        if (enemy.getHp() < Math.round(hpLimit)) {
-            enemy.setInstantDamage(enemy.getHp());
-        }
 
         if (landType == 'L') {
             executeDamage = executeDamage * 1.15f;
@@ -68,8 +65,12 @@ public class Knight extends Hero {
             slamDamage = slamDamage * 1.2f;
         }
 
+        if (enemy.getHp() < Math.round(hpLimit)) {
+            enemy.setInstantDamage(enemy.getHp());
+        } else {
+            enemy.setInstantDamage(Math.round(executeDamage));
+        }
         enemy.setIncapacitation(1);
-        enemy.setInstantDamage(Math.round(executeDamage));
         enemy.setInstantDamage(Math.round(slamDamage));
     }
 

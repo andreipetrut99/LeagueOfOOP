@@ -16,6 +16,7 @@ public class GameLogic {
     List<HeroInfo> heroesInfo = new LinkedList<HeroInfo>();
     List<Hero> heroes = new LinkedList<Hero>();
     List<String> moves = new LinkedList<String>();
+    int level;
 
     public GameLogic(GameInput gameInput) {
         length = gameInput.getLength();
@@ -34,7 +35,7 @@ public class GameLogic {
     public void startGame() {
         this.createHeroes();
         for (int round = 0; round < rounds; round++) {
-          //  System.out.println("Round: " + round);
+            System.out.println("Round: " + round);
 
             moveHeroes(moves.get(0));
             moves.remove(0);
@@ -52,20 +53,21 @@ public class GameLogic {
 
                             heroes.get(i).attack(heroes.get(j), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
                             heroes.get(j).attack(heroes.get(i), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
+                            level = heroes.get(j).getLevel();
                             if (!heroes.get(i).isAlive()) {
                                 heroes.get(j).addXp(calcXp(heroes.get(i).getLevel(), heroes.get(j).getLevel()));
                             }
                             if (!heroes.get(j).isAlive()) {
-                                heroes.get(i).addXp(calcXp(heroes.get(j).getLevel(), heroes.get(i).getLevel()));
+                                heroes.get(i).addXp(calcXp(level, heroes.get(i).getLevel()));
                             }
                         }
                     }
                 }
             }
-           /* for (Hero hero : heroes) {
-                *//*if (!hero.isAlive()) {
+            for (Hero hero : heroes) {
+               /* if (!hero.isAlive()) {
                     System.out.println(hero.getHeroType() + " " + "dead");
-                } else *//*{
+                } else */{
                     System.out.println(hero.getHeroType() + " "
                             + hero.getLevel() + " "
                             + hero.getXp() + " "
@@ -74,8 +76,8 @@ public class GameLogic {
                             + hero.getY());
 
                 }
-            }*/
-           // System.out.println("-----------END ROUND--------");
+            }
+            System.out.println("-----------END ROUND--------");
         }
     }
 
@@ -92,7 +94,7 @@ public class GameLogic {
     }
 
     private int calcXp(int levelLooser, int levelWinner) {
-        return Math.max((200 - ((levelWinner - levelLooser) * 40)), 0);
+        return Math.max((200 - (levelWinner - levelLooser) * 40), 0);
     }
 
     private void moveHeroes(String move) {
