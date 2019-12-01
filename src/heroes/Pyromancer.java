@@ -1,46 +1,68 @@
 package heroes;
 
+import static commons.PyromancerModifiers.FIREBLAST_DAMAGE_PER_LEVEL;
+import static commons.PyromancerModifiers.FIREBLAST_DAMAGE;
+import static commons.PyromancerModifiers.FIREBLAST_KNIGHT;
+import static commons.PyromancerModifiers.FIREBLAST_PYROMANCER;
+import static commons.PyromancerModifiers.FIREBLAST_ROGUE;
+import static commons.PyromancerModifiers.FIREBLAST_WIZARD;
+import static commons.PyromancerModifiers.IGNITE_INSTANT;
+import static commons.PyromancerModifiers.IGNITE_INSTANT_PER_LEVEL;
+import static commons.PyromancerModifiers.IGNITE_KNIGHT;
+import static commons.PyromancerModifiers.IGNITE_PASSIVE;
+import static commons.PyromancerModifiers.IGNITE_PASSIVE_PER_LEVEL;
+import static commons.PyromancerModifiers.IGNITE_PYROMANCER;
+import static commons.PyromancerModifiers.IGNITE_ROGUE;
+import static commons.PyromancerModifiers.IGNITE_WIZARD;
+import static commons.PyromancerModifiers.HEALTH;
+import static commons.PyromancerModifiers.HEALTH_PER_LEVEL;
+import static commons.PyromancerModifiers.LAND_MODIFIER;
+
 public class Pyromancer extends Hero {
-    private int xp = 0;
-    private int hpPerLever = 50;
-    private Hero enemy;
     private float fireblastDamage;
     private float igniteInstantDamage;
     private float ignitePassiveDamage;
-    private float damageDealt;
 
-    public Pyromancer(int x, int y, String landType) {
+    public Pyromancer(final int x, final int y, final String landType) {
         super(x, y, landType);
-        super.setHp(500);
+        super.setHp(HEALTH);
     }
 
-    public void attack(Hero enemy, char terainType) {
-        fireblastDamage = (350 + (50 * this.getLevel()));
-        igniteInstantDamage = (150 + (20 * this.getLevel()));
-        ignitePassiveDamage = (50 + (30 * this.getLevel()));
+    /**
+     * Getter for the damage dealt without race modifiers.
+     * @param landType
+     * @return damage dealt
+     */
+    public void attack(final Hero enemy, final char landType) {
+        fireblastDamage = (FIREBLAST_DAMAGE
+                + (FIREBLAST_DAMAGE_PER_LEVEL * this.getLevel()));
+        igniteInstantDamage = (IGNITE_INSTANT
+                + (IGNITE_INSTANT_PER_LEVEL * this.getLevel()));
+        ignitePassiveDamage = (IGNITE_PASSIVE
+                + (IGNITE_PASSIVE_PER_LEVEL * this.getLevel()));
 
-        if (terainType == 'V') {
-            fireblastDamage = fireblastDamage * 1.25f;
-            ignitePassiveDamage = ignitePassiveDamage * 1.25f;
-            igniteInstantDamage = igniteInstantDamage * 1.25f;
+        if (landType == 'V') {
+            fireblastDamage = fireblastDamage * LAND_MODIFIER;
+            ignitePassiveDamage = ignitePassiveDamage * LAND_MODIFIER;
+            igniteInstantDamage = igniteInstantDamage * LAND_MODIFIER;
         }
 
          if (enemy instanceof  Rogue) {
-            fireblastDamage = fireblastDamage * 0.80f;
-            igniteInstantDamage = igniteInstantDamage * 0.80f;
-            ignitePassiveDamage = ignitePassiveDamage * 0.80f;
+            fireblastDamage = fireblastDamage * FIREBLAST_ROGUE;
+            igniteInstantDamage = igniteInstantDamage * IGNITE_ROGUE;
+            ignitePassiveDamage = ignitePassiveDamage * IGNITE_ROGUE;
          } else if (enemy instanceof Knight) {
-             fireblastDamage = fireblastDamage * 1.2f;
-             igniteInstantDamage = igniteInstantDamage * 1.2f;
-             ignitePassiveDamage = ignitePassiveDamage * 1.2f;
+             fireblastDamage = fireblastDamage * FIREBLAST_KNIGHT;
+             igniteInstantDamage = igniteInstantDamage * IGNITE_KNIGHT;
+             ignitePassiveDamage = ignitePassiveDamage * IGNITE_KNIGHT;
          } else if (enemy instanceof Wizard) {
-             fireblastDamage = fireblastDamage * 1.05f;
-             igniteInstantDamage = igniteInstantDamage * 1.05f;
-             ignitePassiveDamage = ignitePassiveDamage * 1.05f;
+             fireblastDamage = fireblastDamage * FIREBLAST_WIZARD;
+             igniteInstantDamage = igniteInstantDamage * IGNITE_WIZARD;
+             ignitePassiveDamage = ignitePassiveDamage * IGNITE_WIZARD;
          } else if (enemy instanceof Pyromancer) {
-             fireblastDamage = fireblastDamage * 0.90f;
-             igniteInstantDamage = igniteInstantDamage * 0.90f;
-             ignitePassiveDamage = ignitePassiveDamage * 0.90f;
+             fireblastDamage = fireblastDamage * FIREBLAST_PYROMANCER;
+             igniteInstantDamage = igniteInstantDamage * IGNITE_PYROMANCER;
+             ignitePassiveDamage = ignitePassiveDamage * IGNITE_PYROMANCER;
          }
 
          enemy.setInstantDamage(Math.round(fireblastDamage));
@@ -48,25 +70,37 @@ public class Pyromancer extends Hero {
          enemy.setOvertimeDamage(Math.round(ignitePassiveDamage), 2);
     }
 
+    /**
+     * Getter for unmodified damage.
+     * @param landType
+     * @return
+     */
     @Override
-    public float getUnmodifiedDamage(char landType) {
+    public float getUnmodifiedDamage(final char landType) {
         if (landType == 'V') {
-            return  Math.round(1.25f * (350 + (50 * this.getLevel())))
-                    + Math.round(1.25f * (150 + (20 * this.getLevel())));
+            return  Math.round(LAND_MODIFIER * (FIREBLAST_DAMAGE
+                    + (FIREBLAST_DAMAGE_PER_LEVEL * this.getLevel())))
+                    + Math.round(LAND_MODIFIER * (IGNITE_INSTANT
+                    + (IGNITE_INSTANT_PER_LEVEL * this.getLevel())));
         }
-        return (350 + (50 * this.getLevel()))
-                + (150 + (20 * this.getLevel()));
+        return (FIREBLAST_DAMAGE + (FIREBLAST_DAMAGE_PER_LEVEL * this.getLevel()))
+                + (IGNITE_INSTANT + (IGNITE_INSTANT_PER_LEVEL * this.getLevel()));
     }
 
+    /**
+     * Reset health points to default value.
+     */
     @Override
     public void resetHp() {
-        super.setHp(500 + (50 * this.getLevel()));
+        super.setHp(HEALTH + (HEALTH_PER_LEVEL * this.getLevel()));
     }
 
+    /**
+     * Getter for maximum health.
+     * @return max health
+     */
     @Override
     public int getMaxHp() {
-        return (500 + (50 * this.getLevel()));
+        return (HEALTH + (HEALTH_PER_LEVEL * this.getLevel()));
     }
-// todo: de adaugat metoda pt damage periodic
-
 }

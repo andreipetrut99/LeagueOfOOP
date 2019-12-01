@@ -2,23 +2,26 @@ package main;
 
 import heroes.Hero;
 import heroes.HeroFactory;
-import Info.HeroInfo;
+import info.HeroInfo;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class GameLogic {
-    int length = 0;
-    int width = 0;
-    int rounds = 0;
-    int playersNumber = 0;
-    String[] terrainType = new String[0];
-    List<HeroInfo> heroesInfo = new LinkedList<HeroInfo>();
-    List<Hero> heroes = new LinkedList<Hero>();
-    List<String> moves = new LinkedList<String>();
-    int level;
+import static commons.Constants.XP_BONUS_PER_LEVEL;
+import static commons.Constants.XP_CONSTANT;
 
-    public GameLogic(GameInput gameInput) {
+public class GameLogic {
+    private int length = 0;
+    private int width = 0;
+    private int rounds = 0;
+    private int playersNumber = 0;
+    private String[] terrainType = new String[0];
+    private List<HeroInfo> heroesInfo = new LinkedList<HeroInfo>();
+    private List<Hero> heroes = new LinkedList<Hero>();
+    private List<String> moves = new LinkedList<String>();
+    private int level;
+
+    public GameLogic(final GameInput gameInput) {
         length = gameInput.getLength();
         width = gameInput.getWidth();
         rounds = gameInput.getRounds();
@@ -28,20 +31,16 @@ public class GameLogic {
         moves = gameInput.getMoves();
     }
 
-    public List<Hero> getHeroes() {
-        return heroes;
-    }
-
+    /**
+     * Starting the game.
+     */
     public void startGame() {
         this.createHeroes();
         for (int round = 0; round < rounds; round++) {
-            System.out.println("Round: " + round);
-
             moveHeroes(moves.get(0));
             moves.remove(0);
             addOvertimeDamage();
             decreaseIncapacitation();
-
 
             // Fight
             for (int i = 0; i < playersNumber - 1; i++) {
@@ -50,12 +49,14 @@ public class GameLogic {
                         if (heroes.get(i).getX() == heroes.get(j).getX()
                                 && heroes.get(i).getY() == heroes.get(j).getY()) {
                             // se ataca intre ei
-
-                            heroes.get(i).attack(heroes.get(j), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
-                            heroes.get(j).attack(heroes.get(i), terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
+                            heroes.get(i).attack(heroes.get(j),
+                                    terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
+                            heroes.get(j).attack(heroes.get(i),
+                                    terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
                             level = heroes.get(j).getLevel();
                             if (!heroes.get(i).isAlive()) {
-                                heroes.get(j).addXp(calcXp(heroes.get(i).getLevel(), heroes.get(j).getLevel()));
+                                heroes.get(j).addXp(calcXp(heroes.get(i).getLevel(),
+                                        heroes.get(j).getLevel()));
                             }
                             if (!heroes.get(j).isAlive()) {
                                 heroes.get(i).addXp(calcXp(level, heroes.get(i).getLevel()));
@@ -64,40 +65,50 @@ public class GameLogic {
                     }
                 }
             }
-            for (Hero hero : heroes) {
-               /* if (!hero.isAlive()) {
-                    System.out.println(hero.getHeroType() + " " + "dead");
-                } else */{
-                    System.out.println(hero.getHeroType() + " "
-                            + hero.getLevel() + " "
-                            + hero.getXp() + " "
-                            + hero.getHp() + " "
-                            + hero.getX() + " "
-                            + hero.getY());
-
-                }
-            }
-            System.out.println("-----------END ROUND--------");
         }
     }
 
+    /**
+     * Add overtime damage of each player.
+     */
     private void addOvertimeDamage() {
         for (Hero hero : heroes) {
             hero.addOvertimeDamage();
         }
     }
 
+    /**
+     * Getter for a list of heroes.
+     * @return a list of heroes
+     */
+    public List<Hero> getHeroes() {
+        return heroes;
+    }
+
+    /**
+     * Loop and decrease incapacitation rounds.
+     */
     public void decreaseIncapacitation() {
         for (Hero hero : heroes) {
-            hero.loopIncapactiation();
+            hero.loopIncapacitation();
         }
     }
 
-    private int calcXp(int levelLooser, int levelWinner) {
-        return Math.max((200 - (levelWinner - levelLooser) * 40), 0);
+    /**
+     * If a player kills another one he gets experience points.
+     * @param levelLooser
+     * @param levelWinner
+     * @return xp for this battle.
+     */
+    private int calcXp(final int levelLooser, final int levelWinner) {
+        return Math.max((XP_CONSTANT - (levelWinner - levelLooser) * XP_BONUS_PER_LEVEL), 0);
     }
 
-    private void moveHeroes(String move) {
+    /**
+     * After each round, the players move with this method.
+     * @param move
+     */
+    private void moveHeroes(final String move) {
         int heroIndex = -1;
         // Move every player by the rules of string move
         for (Hero hero : heroes) {
@@ -123,6 +134,9 @@ public class GameLogic {
         }
     }
 
+    /**
+     * Create the heroes using their type and initial coordinates.
+     */
     public void createHeroes() {
         HeroFactory heroFactory = HeroFactory.getInstance();
         for (HeroInfo heroInfo : heroesInfo) {

@@ -1,27 +1,17 @@
 package main;
 
-import Info.HeroInfo;
+import info.HeroInfo;
 
 import java.util.List;
 
 public final class GameInput {
-    int mLength;
-    int mWidth;
-    int mRounds;
-    int mPlayersNumber;
-    String[] mTerrainType;
-    List<HeroInfo> mPlayers;
-    List<String> mMoves;
-
-    public GameInput() {
-        int mLength = -1;
-        int mWidth = -1;
-        int mRounds = -1;
-        int mPlayersNumber = -1;
-        String[] mTerrainType = null;
-        List<HeroInfo> mPlayers = null;
-        List<String> mMoves = null;
-    }
+    private int mLength;
+    private int mWidth;
+    private int mRounds;
+    private int mPlayersNumber;
+    private String[] mTerrainType;
+    private List<HeroInfo> mPlayers;
+    private List<String> mMoves;
 
     public GameInput(final int length,
                      final int width,
@@ -39,35 +29,35 @@ public final class GameInput {
         mMoves = moves;
     }
 
-    public final int getLength() {
+    public int getLength() {
         return mLength;
     }
 
-    public final List<String> getMoves() {
+    public List<String> getMoves() {
         return mMoves;
     }
 
-    public final List<HeroInfo> getPlayers() {
+    public List<HeroInfo> getPlayers() {
         return mPlayers;
     }
 
-    public final String[] getTerrainType() {
+    public String[] getTerrainType() {
         return mTerrainType;
     }
 
-    public final int getPlayersNumber() {
+    public int getPlayersNumber() {
         return mPlayersNumber;
     }
 
-    public final int getRounds() {
+    public int getRounds() {
         return mRounds;
     }
 
-    public final int getWidth() {
+    public int getWidth() {
         return mWidth;
     }
 
-    public final boolean isValidInput() {
+    public boolean isValidInput() {
         boolean membersInstantiated = mPlayers != null
                 && mTerrainType != null
                 && mMoves != null;

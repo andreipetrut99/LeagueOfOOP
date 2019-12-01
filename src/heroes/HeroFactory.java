@@ -1,6 +1,6 @@
 package heroes;
 
-public class HeroFactory {
+public final class HeroFactory {
     private static HeroFactory instance = null;
     private HeroFactory() {
     }
@@ -14,7 +14,7 @@ public class HeroFactory {
 
     public Hero createHero(final String type, final int x, final int y) {
         switch (type) {
-            case "P": return new Pyromancer(x,y, type);
+            case "P": return new Pyromancer(x, y, type);
             case "K": return new Knight(x, y, type);
             case "R": return new Rogue(x, y, type);
             case "W": return new Wizard(x, y, type);

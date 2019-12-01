@@ -2,7 +2,7 @@ package main;
 
 import fileio.FileSystem;
 import heroes.Hero;
-import Info.HeroInfo;
+import info.HeroInfo;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +15,10 @@ public class GameInputLoader {
         mInputPath = inputPath;
         mOutputPath = outputPath;
     }
-
+    /**
+     * Load Game Input.
+     * @return GameInput
+     */
     public GameInput load() {
         int length = 0;
         int width = 0;
@@ -57,7 +60,11 @@ public class GameInputLoader {
                 terrainType, moves);
     }
 
-    public void print(List<Hero> heroes) {
+    /**
+     * print the required output.
+     * @param heroes
+     */
+    public void print(final List<Hero> heroes) {
         try {
             FileSystem fs = new FileSystem(mInputPath, mOutputPath);
 

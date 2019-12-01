@@ -1,68 +1,111 @@
 package heroes;
 
+import static commons.Constants.EXECUTE_DAMAGE;
+import static commons.Constants.EXECUTE_DAMAGE_PER_LEVEL;
+import static commons.Constants.SLAM_DAMAGE;
+import static commons.Constants.SLAM_DAMAGE_PER_LEVEL;
+import static commons.Constants.MAX_LEVEL_FOR_HP_LIMIT;
+import static commons.Constants.UNMODIFIED_HP_LIMIT;
+import static commons.Constants.KNIGHT_HEALTH;
+import static commons.Constants.KNIGHT_HEALTH_PER_LEVEL;
+import static commons.Constants.CENT;
 
-import java.rmi.MarshalException;
+import static commons.KnightModifiers.EXECUTE_ROGUE;
+import static commons.KnightModifiers.EXECUTE_PYROMANCER;
+import static commons.KnightModifiers.EXECUTE_WIZARD;
+import static commons.KnightModifiers.SLAM_KNIGHT;
+import static commons.KnightModifiers.SLAM_PYROMANCER;
+import static commons.KnightModifiers.SLAM_ROGUE;
+import static commons.KnightModifiers.SLAM_WIZARD;
+import static commons.KnightModifiers.HP_LIMIT_MODIFIER;
+import static commons.KnightModifiers.HP_LIMIT_MODIFIER_MIN;
+import static commons.KnightModifiers.LAND_MODIFIER;
 
 public class Knight extends Hero {
-    public Knight(int x, int y, String heroType) {
+    public Knight(final int x, final int y, final String heroType) {
         super(x, y, heroType);
-        setHp(900);
+        setHp(KNIGHT_HEALTH);
     }
 
+    /**
+     * Setter for Health Points.
+     * @param hp
+     */
     @Override
-    public void setHp(int hp) {
+    public void setHp(final int hp) {
         super.setHp(hp);
     }
 
+    /**
+     * Reset Health Points to default value.
+     */
     @Override
     public void resetHp() {
-        super.setHp(900 + (80 * getLevel()));
+        super.setHp(KNIGHT_HEALTH + (KNIGHT_HEALTH_PER_LEVEL * getLevel()));
     }
 
+    /**
+     * Getting the maximum health points a hero can have.
+     * @return
+     */
     @Override
     public int getMaxHp() {
-        return (900 + (80 * getLevel()));
+        return (KNIGHT_HEALTH + (KNIGHT_HEALTH_PER_LEVEL * getLevel()));
     }
 
+    /**
+     * Getter for the damage dealt without race modifiers.
+     * @param landType
+     * @return damage dealt
+     */
     @Override
-    public float getUnmodifiedDamage(char landType) {
+    public float getUnmodifiedDamage(final char landType) {
         if (landType == 'L') {
-            return Math.round(1.15f * (200 + (30 * this.getLevel()) + 100 + (40 * this.getLevel())));
+            return Math.round(LAND_MODIFIER * (EXECUTE_DAMAGE
+                    + (EXECUTE_DAMAGE_PER_LEVEL * this.getLevel())
+                    + SLAM_DAMAGE + (SLAM_DAMAGE_PER_LEVEL * this.getLevel())));
         }
-        return 200 + (30 * this.getLevel()) + 100 + (40 * this.getLevel());
+        return (float) (EXECUTE_DAMAGE
+                        + (EXECUTE_DAMAGE_PER_LEVEL * this.getLevel())
+                        + SLAM_DAMAGE + (SLAM_DAMAGE_PER_LEVEL * this.getLevel()));
     }
 
+    /**
+     * Method for attacking the enemy and decrease his health.
+     * @param enemy
+     * @param landType
+     */
     @Override
-    public void attack(Hero enemy, char landType) {
-        float executeDamage = 200 + (30 * this.getLevel());
-        float slamDamage = 100 + (40 * this.getLevel());
+    public void attack(final Hero enemy, final char landType) {
+        float executeDamage = EXECUTE_DAMAGE + (EXECUTE_DAMAGE_PER_LEVEL * this.getLevel());
+        float slamDamage = SLAM_DAMAGE + (SLAM_DAMAGE_PER_LEVEL * this.getLevel());
         float hpLimit;
         float maxPercentage;
 
-        if (enemy.getLevel() >= 40) {
-            maxPercentage = 1.6f;
+        if (enemy.getLevel() >= MAX_LEVEL_FOR_HP_LIMIT) {
+            maxPercentage = HP_LIMIT_MODIFIER;
         } else {
-            maxPercentage = 0.2f + (float)enemy.getLevel() / 100;
+            maxPercentage = HP_LIMIT_MODIFIER_MIN + (float) enemy.getLevel() / CENT;
         }
-        hpLimit = 500 * maxPercentage;
+        hpLimit = UNMODIFIED_HP_LIMIT * maxPercentage;
 
 
         if (landType == 'L') {
-            executeDamage = executeDamage * 1.15f;
-            slamDamage = slamDamage * 1.15f;
+            executeDamage = executeDamage * LAND_MODIFIER;
+            slamDamage = slamDamage * LAND_MODIFIER;
         }
 
         if (enemy instanceof Pyromancer) {
-            executeDamage = executeDamage * 1.1f;
-            slamDamage = slamDamage * 0.9f;
+            executeDamage = executeDamage * EXECUTE_PYROMANCER;
+            slamDamage = slamDamage * SLAM_PYROMANCER;
         } else if (enemy instanceof Rogue) {
-            executeDamage = executeDamage * 1.15f;
-            slamDamage = slamDamage * 0.8f;
+            executeDamage = executeDamage * EXECUTE_ROGUE;
+            slamDamage = slamDamage * SLAM_ROGUE;
         } else if (enemy instanceof Wizard) {
-            executeDamage = executeDamage * 0.8f;
-            slamDamage = slamDamage * 1.05f;
+            executeDamage = executeDamage * EXECUTE_WIZARD;
+            slamDamage = slamDamage * SLAM_WIZARD;
         } else {
-            slamDamage = slamDamage * 1.2f;
+            slamDamage = slamDamage * SLAM_KNIGHT;
         }
 
         if (enemy.getHp() < Math.round(hpLimit)) {

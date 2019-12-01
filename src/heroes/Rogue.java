@@ -1,60 +1,92 @@
 package heroes;
 
+import static commons.RogueModifiers.BACKSTAB;
+import static commons.RogueModifiers.BACKSTAB_KNIGHT;
+import static commons.RogueModifiers.BACKSTAB_PER_LEVEL;
+import static commons.RogueModifiers.BACKSTAB_PYROMANCER;
+import static commons.RogueModifiers.BACKSTAB_ROGUE;
+import static commons.RogueModifiers.BACKSTAB_WIZARD;
+import static commons.RogueModifiers.PARALYSIS;
+import static commons.RogueModifiers.PARALYSIS_KNIGHT;
+import static commons.RogueModifiers.PARALYSIS_MAX_ROUNDS;
+import static commons.RogueModifiers.PARALYSIS_MIN_ROUNDS;
+import static commons.RogueModifiers.PARALYSIS_PER_LEVEL;
+import static commons.RogueModifiers.PARALYSIS_PYROMANCER;
+import static commons.RogueModifiers.PARALYSIS_ROGUE;
+import static commons.RogueModifiers.PARALYSIS_WIZARD;
+import static commons.RogueModifiers.CRITICAL_HIT;
+import static commons.RogueModifiers.LAND_MODIFIER;
+import static commons.RogueModifiers.INITIAL_HITS;
+import static commons.RogueModifiers.HEALTH;
+import static commons.RogueModifiers.HEALTH_PER_LEVEL;
+
 public class Rogue extends Hero {
     private float unmodifiedDamage;
-    private int backstabHits = 3;
+    private int backstabHits = INITIAL_HITS;
     private boolean attacked = false;
-     public Rogue(int x, int y, String landType) {
+     public Rogue(final int x, final int y, final String landType) {
          super(x, y, landType);
-         setHp(600);
+         setHp(HEALTH);
      }
 
+    /**
+     * Resets hp to default value.
+     */
     @Override
     public void resetHp() {
-        setHp(600 + (40 * getLevel()));
+        setHp(HEALTH + (HEALTH_PER_LEVEL * getLevel()));
     }
 
+    /**
+     * Getter for maximum hp.
+     * @return max hp
+     */
     @Override
     public int getMaxHp() {
-        return 600 + (40 * getLevel());
+        return HEALTH + (HEALTH_PER_LEVEL * getLevel());
     }
 
+    /**
+     * Method where hero attacks enemy and give damage.
+     * @param enemy
+     * @param landType
+     */
     @Override
-    public void attack(Hero enemy, char landType) {
-         float backstabDamage = 200 + (20 * getLevel());
-        float paralysisDamage = 40 + (10 * getLevel());
+    public void attack(final Hero enemy, final char landType) {
+         float backstabDamage = BACKSTAB + (BACKSTAB_PER_LEVEL * getLevel());
+        float paralysisDamage = PARALYSIS + (PARALYSIS_PER_LEVEL * getLevel());
         int paralysisRounds;
         attacked = true;
 
-        if (backstabHits == 3 && landType == 'W') {
-            backstabDamage = backstabDamage * 1.5f;
+        if (backstabHits == INITIAL_HITS && landType == 'W') {
+            backstabDamage = backstabDamage * CRITICAL_HIT;
             backstabHits = 0;
-        } else if (backstabHits == 3) {
+        } else if (backstabHits == INITIAL_HITS) {
             backstabHits = 0;
         }
         backstabHits++;
 
         if (landType == 'W') {
-            paralysisRounds = 6;
-            paralysisDamage = paralysisDamage * 1.15f;
-            backstabDamage = backstabDamage * 1.15f;
+            paralysisRounds = PARALYSIS_MAX_ROUNDS;
+            paralysisDamage = paralysisDamage * LAND_MODIFIER;
+            backstabDamage = backstabDamage * LAND_MODIFIER;
         } else {
-            paralysisRounds = 3;
+            paralysisRounds = PARALYSIS_MIN_ROUNDS;
         }
         unmodifiedDamage = Math.round(backstabDamage) + Math.round(paralysisDamage);
 
         if (enemy instanceof Rogue) {
-            backstabDamage = backstabDamage * 1.2f;
-            paralysisDamage = paralysisDamage * 0.9f;
+            backstabDamage = backstabDamage * BACKSTAB_ROGUE;
+            paralysisDamage = paralysisDamage * PARALYSIS_ROGUE;
         } else if (enemy instanceof Knight) {
-            backstabDamage = backstabDamage * 0.9f;
-            paralysisDamage = paralysisDamage * 0.8f;
+            backstabDamage = backstabDamage * BACKSTAB_KNIGHT;
+            paralysisDamage = paralysisDamage * PARALYSIS_KNIGHT;
         } else if (enemy instanceof Pyromancer) {
-            backstabDamage = backstabDamage * 1.25f;
-            paralysisDamage = paralysisDamage * 1.2f;
+            backstabDamage = backstabDamage * BACKSTAB_PYROMANCER;
+            paralysisDamage = paralysisDamage * PARALYSIS_PYROMANCER;
         } else {
-            backstabDamage = backstabDamage * 1.25f;
-            paralysisDamage = paralysisDamage * 1.25f;
+            backstabDamage = backstabDamage * BACKSTAB_WIZARD;
+            paralysisDamage = paralysisDamage * PARALYSIS_WIZARD;
         }
 
         enemy.setInstantDamage(Math.round(backstabDamage));
@@ -63,23 +95,28 @@ public class Rogue extends Hero {
         enemy.setIncapacitation(paralysisRounds);
     }
 
+    /**
+     * Getter for unmodified damage.
+     * @param landType
+     * @return
+     */
     @Override
-    public float getUnmodifiedDamage(char landType) {
-         float backstabDamage = 200 + (20 * getLevel());
-         float paralysisDamage = 40 + (10 * getLevel());
+    public float getUnmodifiedDamage(final char landType) {
+         float backstabDamage = BACKSTAB + (BACKSTAB_PER_LEVEL * getLevel());
+         float paralysisDamage = PARALYSIS + (PARALYSIS_PER_LEVEL * getLevel());
          if (attacked) {
-            if (((backstabHits - 1) == 0) && (landType =='W')) {
-                backstabDamage = backstabDamage * 1.5f;
+            if (((backstabHits - 1) == 0) && (landType == 'W')) {
+                backstabDamage = backstabDamage * CRITICAL_HIT;
             }
          } else {
-             if (backstabHits == 3 && landType == 'W') {
-                 backstabDamage = backstabDamage * 1.5f;
+             if (backstabHits == INITIAL_HITS && landType == 'W') {
+                 backstabDamage = backstabDamage * CRITICAL_HIT;
              }
          }
 
         if (landType == 'W') {
-            backstabDamage = backstabDamage * 1.15f;
-            paralysisDamage = paralysisDamage * 1.15f;
+            backstabDamage = backstabDamage * LAND_MODIFIER;
+            paralysisDamage = paralysisDamage * LAND_MODIFIER;
         }
 
         return Math.round(backstabDamage) + Math.round(paralysisDamage);

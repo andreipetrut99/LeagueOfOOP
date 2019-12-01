@@ -1,5 +1,7 @@
 package heroes;
 
+import static commons.Constants.*;
+
 public abstract class Hero {
     private int x, y;
     private int xp = 0;
@@ -7,7 +9,6 @@ public abstract class Hero {
     private int xpLevelUp;
     private int hp;
     private boolean isAlive = true;
-    private String landType;
     private String heroType;
     private int overtimeDamage;
     private boolean incapacitated = false;
@@ -22,19 +23,31 @@ public abstract class Hero {
         this.heroType = heroType;
     }
 
-    public void setInstantDamage(int damage) {
+    /**
+     * Setting an instant damage to this hero.
+     * @param damage taken instantly.
+     */
+    public void setInstantDamage(final int damage) {
         hp -= damage;
         if (hp <= 0) {
             this.isAlive = false;
         }
     }
 
+    /**
+     * Setting overtime damage for abilities like ignite or paralysis.
+     * @param damage taken every round.
+     * @param rounds to take damage.
+     */
     public void setOvertimeDamage(final int damage, final int rounds) {
         this.affectedRounds = rounds;
         this.overtimeDamage = damage;
         this.overtimeAffected = true;
     }
 
+    /**
+     * Loop and add damage every round.
+     */
     public void addOvertimeDamage() {
         if (overtimeAffected) {
             setInstantDamage(overtimeDamage);
@@ -48,12 +61,19 @@ public abstract class Hero {
         }
     }
 
-    public void setIncapacitation(int incapacitatedRounds) {
+    /**
+     * Make a player incapacitated for a number of rounds.
+     * @param incapacitatedRounds
+     */
+    public void setIncapacitation(final int incapacitatedRounds) {
         this.incapacitatedRounds = incapacitatedRounds;
         this.incapacitated = true;
     }
 
-    public void loopIncapactiation() {
+    /**
+     * Loop through this method every round and decrease incapacitated rounds.
+     */
+    public void loopIncapacitation() {
         if (this.incapacitated) {
             incapacitatedRounds -= 1;
         }
@@ -62,59 +82,104 @@ public abstract class Hero {
         }
     }
 
+    /**
+     * Check if a player is incapacitated.
+     * @return boolean incapacitated
+     */
     public boolean isIncapacitated() {
         return incapacitated;
     }
 
-    public String getHeroType() {
-        return heroType;
-    }
-
-
+    /**
+     * Getter for hero level.
+     * @return hero level.
+     */
     public int getLevel() {
         return level;
     }
-
-
+    /**
+     * Check if a hero is alive.
+     * @return boolean isAlive.
+     */
     public boolean isAlive() {
         return isAlive;
     }
 
+    /**
+     * Get xPos of this hero.
+     * @return integer x.
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * Get yPos of this hero.
+     * @return integer y.
+     */
     public int getY() {
         return y;
     }
 
-    public void addXp(int xp) {
+    /**
+     * Add to a player experience points and level up if it is the case to.
+     * @param xp to add.
+     */
+    public void addXp(final int xp) {
         this.xp += xp;
-        xpLevelUp = 250 + (level * 50);
+        xpLevelUp = MIN_XP + (level * XP_PER_LEVEL);
         while (this.xp >= xpLevelUp) {
             level += 1;
-            xpLevelUp = 250 + (level * 50);
+            xpLevelUp = MIN_XP + (level * XP_PER_LEVEL);
             resetHp();
         }
 
     }
 
+    /**
+     * Getter for hero experience points.
+     * @return experience points.
+     */
     public int getXp() {
         return this.xp;
     }
 
-    public void setY(int y) {
+    /**
+     * Set new yPos value.
+     * @param y
+     */
+    public void setY(final int y) {
         this.y = y;
     }
 
-    public void setX(int x) {
+    /**
+     * Set new xPos value.
+     * @param x
+     */
+    public void setX(final int x) {
         this.x = x;
     }
 
-    public void setHp(int hp) {
+    /**
+     * Set Health Points.
+     * @param hp
+     */
+    public void setHp(final int hp) {
         this.hp = hp;
     }
 
+    /**
+     * Getter for hero type.
+     * @return
+     */
+    public String getHeroType() {
+        return heroType;
+    }
+
+    /**
+     * Getter for Health Points.
+     * @return
+     */
     public int getHp() {
         return this.hp;
     }
