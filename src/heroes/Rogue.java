@@ -1,19 +1,11 @@
 package heroes;
 
 import static commons.RogueModifiers.BACKSTAB;
-import static commons.RogueModifiers.BACKSTAB_KNIGHT;
 import static commons.RogueModifiers.BACKSTAB_PER_LEVEL;
-import static commons.RogueModifiers.BACKSTAB_PYROMANCER;
-import static commons.RogueModifiers.BACKSTAB_ROGUE;
-import static commons.RogueModifiers.BACKSTAB_WIZARD;
 import static commons.RogueModifiers.PARALYSIS;
-import static commons.RogueModifiers.PARALYSIS_KNIGHT;
 import static commons.RogueModifiers.PARALYSIS_MAX_ROUNDS;
 import static commons.RogueModifiers.PARALYSIS_MIN_ROUNDS;
 import static commons.RogueModifiers.PARALYSIS_PER_LEVEL;
-import static commons.RogueModifiers.PARALYSIS_PYROMANCER;
-import static commons.RogueModifiers.PARALYSIS_ROGUE;
-import static commons.RogueModifiers.PARALYSIS_WIZARD;
 import static commons.RogueModifiers.CRITICAL_HIT;
 import static commons.RogueModifiers.LAND_MODIFIER;
 import static commons.RogueModifiers.INITIAL_HITS;
@@ -22,6 +14,14 @@ import static commons.RogueModifiers.HEALTH_PER_LEVEL;
 
 public class Rogue extends Hero {
     private float unmodifiedDamage;
+    private float backstab_rogue = 1.2f;
+    private float backstab_knight = 0.9f;
+    private float backstab_pyromancer = 1.25f;
+    private float backstab_wizard = 1.25f
+    private float paralysis_rogue = 0.9f;
+    private float paralysis_knight = 0.8f;
+    private float paralysis_pyromancer = 1.2f;
+    private float paralysiss_wizard = 1.25f;
     private int backstabHits = INITIAL_HITS;
     private boolean attacked = false;
      public Rogue(final int x, final int y, final String landType) {
@@ -76,17 +76,17 @@ public class Rogue extends Hero {
         unmodifiedDamage = Math.round(backstabDamage) + Math.round(paralysisDamage);
 
         if (enemy instanceof Rogue) {
-            backstabDamage = backstabDamage * BACKSTAB_ROGUE;
-            paralysisDamage = paralysisDamage * PARALYSIS_ROGUE;
+            backstabDamage = backstabDamage * backstab_rogue;
+            paralysisDamage = paralysisDamage * paralysis_rogue;
         } else if (enemy instanceof Knight) {
-            backstabDamage = backstabDamage * BACKSTAB_KNIGHT;
-            paralysisDamage = paralysisDamage * PARALYSIS_KNIGHT;
+            backstabDamage = backstabDamage * backstab_knight;
+            paralysisDamage = paralysisDamage * paralysis_knight;
         } else if (enemy instanceof Pyromancer) {
-            backstabDamage = backstabDamage * BACKSTAB_PYROMANCER;
-            paralysisDamage = paralysisDamage * PARALYSIS_PYROMANCER;
+            backstabDamage = backstabDamage * backstab_pyromancer;
+            paralysisDamage = paralysisDamage * paralysis_pyromancer;
         } else {
-            backstabDamage = backstabDamage * BACKSTAB_WIZARD;
-            paralysisDamage = paralysisDamage * PARALYSIS_WIZARD;
+            backstabDamage = backstabDamage * backstab_wizard;
+            paralysisDamage = paralysisDamage * paralysiss_wizard;
         }
 
         enemy.setInstantDamage(Math.round(backstabDamage));
@@ -113,12 +113,24 @@ public class Rogue extends Hero {
                  backstabDamage = backstabDamage * CRITICAL_HIT;
              }
          }
-
+        System.out.println(backstabDamage + " " + paralysisDamage);
         if (landType == 'W') {
             backstabDamage = backstabDamage * LAND_MODIFIER;
             paralysisDamage = paralysisDamage * LAND_MODIFIER;
         }
-
+        System.out.println(backstabDamage + " " + paralysisDamage);
         return Math.round(backstabDamage) + Math.round(paralysisDamage);
+    }
+
+    @Override
+    public void changeModifiers(float percent) {
+        backstab_wizard += percent;
+        backstab_pyromancer += percent;
+        backstab_knight += percent;
+        backstab_rogue += percent;
+        paralysiss_wizard += percent;
+        paralysis_pyromancer += percent;
+        paralysis_knight += percent;
+        paralysis_rogue += percent;
     }
 }

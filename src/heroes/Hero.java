@@ -136,6 +136,10 @@ public abstract class Hero {
 
     }
 
+    public int getXpLevelUp() {
+        return MIN_XP + (level * XP_PER_LEVEL);
+    }
+
     /**
      * Getter for hero experience points.
      * @return experience points.
@@ -165,6 +169,9 @@ public abstract class Hero {
      * @param hp
      */
     public void setHp(final int hp) {
+        if (hp > 0) {
+            isAlive = true;
+        }
         this.hp = hp;
     }
 
@@ -188,4 +195,5 @@ public abstract class Hero {
     public abstract int getMaxHp();
     public abstract void attack(Hero hero, char landType);
     public abstract float getUnmodifiedDamage(char landType);
+    public abstract void changeModifiers(float percent);
 }

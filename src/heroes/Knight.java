@@ -10,18 +10,19 @@ import static commons.Constants.KNIGHT_HEALTH;
 import static commons.Constants.KNIGHT_HEALTH_PER_LEVEL;
 import static commons.Constants.CENT;
 
-import static commons.KnightModifiers.EXECUTE_ROGUE;
-import static commons.KnightModifiers.EXECUTE_PYROMANCER;
-import static commons.KnightModifiers.EXECUTE_WIZARD;
-import static commons.KnightModifiers.SLAM_KNIGHT;
-import static commons.KnightModifiers.SLAM_PYROMANCER;
-import static commons.KnightModifiers.SLAM_ROGUE;
-import static commons.KnightModifiers.SLAM_WIZARD;
 import static commons.KnightModifiers.HP_LIMIT_MODIFIER;
 import static commons.KnightModifiers.HP_LIMIT_MODIFIER_MIN;
 import static commons.KnightModifiers.LAND_MODIFIER;
 
 public class Knight extends Hero {
+    private float execute_rogue = 1.15f;
+    private float execute_pyromancer = 1.1f;
+    private float execute_wizard = 0.8f;
+    private float slam_rogue = 0.8f;
+    private float slam_knight = 1.2f;
+    private float slam_pyromancer = 0.9f;
+    private float slam_wizard = 1.05f;
+
     public Knight(final int x, final int y, final String heroType) {
         super(x, y, heroType);
         setHp(KNIGHT_HEALTH);
@@ -29,6 +30,7 @@ public class Knight extends Hero {
 
     /**
      * Setter for Health Points.
+     *
      * @param hp
      */
     @Override
@@ -46,6 +48,7 @@ public class Knight extends Hero {
 
     /**
      * Getting the maximum health points a hero can have.
+     *
      * @return
      */
     @Override
@@ -55,6 +58,7 @@ public class Knight extends Hero {
 
     /**
      * Getter for the damage dealt without race modifiers.
+     *
      * @param landType
      * @return damage dealt
      */
@@ -66,12 +70,28 @@ public class Knight extends Hero {
                     + SLAM_DAMAGE + (SLAM_DAMAGE_PER_LEVEL * this.getLevel())));
         }
         return (float) (EXECUTE_DAMAGE
-                        + (EXECUTE_DAMAGE_PER_LEVEL * this.getLevel())
-                        + SLAM_DAMAGE + (SLAM_DAMAGE_PER_LEVEL * this.getLevel()));
+                + (EXECUTE_DAMAGE_PER_LEVEL * this.getLevel())
+                + SLAM_DAMAGE + (SLAM_DAMAGE_PER_LEVEL * this.getLevel()));
+    }
+
+    /**
+     * Method for updating the modifiers.
+     * @param percent
+     */
+    @Override
+    public void changeModifiers(float percent) {
+        slam_wizard += percent;
+        slam_knight += percent;
+        slam_rogue += percent;
+        slam_pyromancer += percent;
+        execute_wizard += percent;
+        execute_rogue += percent;
+        execute_pyromancer += percent;
     }
 
     /**
      * Method for attacking the enemy and decrease his health.
+     *
      * @param enemy
      * @param landType
      */
@@ -96,16 +116,16 @@ public class Knight extends Hero {
         }
 
         if (enemy instanceof Pyromancer) {
-            executeDamage = executeDamage * EXECUTE_PYROMANCER;
-            slamDamage = slamDamage * SLAM_PYROMANCER;
+            executeDamage = executeDamage * execute_pyromancer;
+            slamDamage = slamDamage * slam_pyromancer;
         } else if (enemy instanceof Rogue) {
-            executeDamage = executeDamage * EXECUTE_ROGUE;
-            slamDamage = slamDamage * SLAM_ROGUE;
+            executeDamage = executeDamage * execute_rogue;
+            slamDamage = slamDamage * slam_rogue;
         } else if (enemy instanceof Wizard) {
-            executeDamage = executeDamage * EXECUTE_WIZARD;
-            slamDamage = slamDamage * SLAM_WIZARD;
+            executeDamage = executeDamage * execute_wizard;
+            slamDamage = slamDamage * slam_wizard;
         } else {
-            slamDamage = slamDamage * SLAM_KNIGHT;
+            slamDamage = slamDamage * slam_knight;
         }
 
         if (enemy.getHp() < Math.round(hpLimit)) {

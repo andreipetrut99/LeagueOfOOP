@@ -1,26 +1,27 @@
 package heroes;
 
-import static commons.WizardModifiers.DRAIN_KNIGHT;
-import static commons.WizardModifiers.DEFLECT_KNIGHT;
 import static commons.WizardModifiers.DEFLECT_MAX_PERCENT;
 import static commons.WizardModifiers.DEFLECT_MIN_PERCENT;
 import static commons.WizardModifiers.DEFLECT_PERCENT;
-import static commons.WizardModifiers.DEFLECT_PYROMANCER;
-import static commons.WizardModifiers.DEFLECT_ROGUE;
-import static commons.WizardModifiers.DEFLECT_WIZARD;
 import static commons.WizardModifiers.DRAIN_PERCENT;
 import static commons.WizardModifiers.DRAIN_PERCENT_MIN;
-import static commons.WizardModifiers.DRAIN_PYROMANCER;
 import static commons.WizardModifiers.LAND_MODIFIER;
 import static commons.WizardModifiers.HEALTH_PER_LEVEL;
 import static commons.WizardModifiers.HEALTH;
 import static commons.WizardModifiers.LEVEL_MAX;
-import static commons.WizardModifiers.DRAIN_ROGUE;
-import static commons.WizardModifiers.DRAIN_WIZARD;
 import static commons.WizardModifiers.MIN_DRAIN;
 
 
 public class Wizard extends Hero {
+    private float drain_rogue = 0.8f;
+    private float drain_knight = 1.2f;
+    private float drain_pyromancer = 0.9f;
+    private float drain_wizard = 1.05f;
+    private float deflect_rogue = 1.2f;
+    private float deflect_knight = 1.4f;
+    private float deflect_pyromancer = 1.3f;
+    private float deflect_wizard = 0f;
+
     public Wizard(final int x, final int y, final String landType) {
         super(x, y, landType);
         setHp(HEALTH);
@@ -59,17 +60,17 @@ public class Wizard extends Hero {
         }
 
         if (enemy instanceof Rogue) {
-            drainPercent = DRAIN_ROGUE * drainPercent;
-            deflectPercent = DEFLECT_ROGUE * deflectPercent;
+            drainPercent = drain_rogue * drainPercent;
+            deflectPercent = deflect_rogue * deflectPercent;
         } else if (enemy instanceof Knight) {
-            drainPercent = DRAIN_KNIGHT * drainPercent;
-            deflectPercent = DEFLECT_KNIGHT * deflectPercent;
+            drainPercent = drain_knight * drainPercent;
+            deflectPercent = deflect_knight * deflectPercent;
         } else if (enemy instanceof Pyromancer) {
-            drainPercent = DRAIN_PYROMANCER * drainPercent;
-            deflectPercent = DEFLECT_PYROMANCER * deflectPercent;
+            drainPercent = drain_pyromancer * drainPercent;
+            deflectPercent = deflect_pyromancer * deflectPercent;
         } else {
-            drainPercent = DRAIN_WIZARD * drainPercent;
-            deflectPercent = DEFLECT_WIZARD;
+            drainPercent = drain_wizard * drainPercent;
+            deflectPercent = deflect_wizard;
         }
         float drainDamage = drainPercent * (Math.min(MIN_DRAIN * enemy.getMaxHp(), enemy.getHp()));
         float deflectDamage = deflectPercent * enemy.getUnmodifiedDamage(landType);
@@ -90,6 +91,18 @@ public class Wizard extends Hero {
     @Override
     public float getUnmodifiedDamage(final char landType) {
         return 0;
+    }
+
+    @Override
+    public void changeModifiers(float percent) {
+        drain_knight += percent;
+        drain_pyromancer += percent;
+        drain_rogue += percent;
+        drain_wizard += percent;
+        deflect_knight += percent;
+        deflect_pyromancer += percent;
+        deflect_rogue += percent;
+        deflect_wizard += percent;
     }
 
 }
