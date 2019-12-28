@@ -14,7 +14,7 @@ public class SmallAngel implements Angel {
 
     @Override
     public void visit(Pyromancer hero) {
-        hero.changeModifiers(0.15);
+        hero.changeModifiers(0.15f);
         hero.setInstantDamage(-15);
     }
 

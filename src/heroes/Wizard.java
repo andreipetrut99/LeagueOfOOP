@@ -102,7 +102,6 @@ public class Wizard extends Hero {
         deflect_knight += percent;
         deflect_pyromancer += percent;
         deflect_rogue += percent;
-        deflect_wizard += percent;
     }
 
 }
