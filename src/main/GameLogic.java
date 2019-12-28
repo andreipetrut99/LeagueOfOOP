@@ -1,5 +1,8 @@
 package main;
 
+import admin.TheGreatWizard;
+import angels.Angel;
+import angels.AngelFactory;
 import heroes.Hero;
 import heroes.HeroFactory;
 import info.HeroInfo;
@@ -15,11 +18,15 @@ public class GameLogic {
     private int width = 0;
     private int rounds = 0;
     private int playersNumber = 0;
-    private String[] terrainType = new String[0];
-    private List<HeroInfo> heroesInfo = new LinkedList<HeroInfo>();
+    private String[] terrainType;
+    private List<HeroInfo> heroesInfo;
     private List<Hero> heroes = new LinkedList<Hero>();
-    private List<String> moves = new LinkedList<String>();
+    private List<String> moves;
     private int level;
+    private List<Integer> angelsNumber;
+    private List<List<String>> inputAngels;
+    private List<Angel> currentAngels;
+    private GameInputLoader outputFile = GameInputLoader.getInstance();
 
     public GameLogic(final GameInput gameInput) {
         length = gameInput.getLength();
@@ -29,39 +36,92 @@ public class GameLogic {
         terrainType = gameInput.getTerrainType();
         heroesInfo = gameInput.getPlayers();
         moves = gameInput.getMoves();
+        angelsNumber = gameInput.getAngelsNumber();
+        inputAngels = gameInput.getAngels();
     }
 
     /**
      * Starting the game.
      */
     public void startGame() {
+        TheGreatWizard observer = TheGreatWizard.getInstance();
+        AngelFactory angelFactory = AngelFactory.getInstance();
         this.createHeroes();
+        outputFile.printLine("~~ Round 1 ~~");
         for (int round = 0; round < rounds; round++) {
+
+            if (angelsNumber.get(round) != 0) {
+                currentAngels = angelFactory.createAngels(inputAngels.get(round));
+            } else {
+                currentAngels = null;
+            }
+
+            playStrategies();
             moveHeroes(moves.get(0));
             moves.remove(0);
             addOvertimeDamage();
             decreaseIncapacitation();
 
+            Hero hero1, hero2;
             // Fight
             for (int i = 0; i < playersNumber - 1; i++) {
+                hero1 = heroes.get(i);
                 for (int j = i + 1; j < playersNumber; j++) {
-                    if (heroes.get(i).isAlive() && heroes.get(j).isAlive()) {
-                        if (heroes.get(i).getX() == heroes.get(j).getX()
-                                && heroes.get(i).getY() == heroes.get(j).getY()) {
+                    hero2 = heroes.get(j);
+                    if (hero1.isAlive() && hero2.isAlive()) {
+                        if (hero1.getX() == hero2.getX()
+                                && hero1.getY() == hero2.getY()) {
                             // se ataca intre ei
-                            heroes.get(i).attack(heroes.get(j),
-                                    terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
-                            heroes.get(j).attack(heroes.get(i),
-                                    terrainType[heroes.get(i).getX()].charAt(heroes.get(i).getY()));
-                            level = heroes.get(j).getLevel();
-                            if (!heroes.get(i).isAlive()) {
-                                heroes.get(j).addXp(calcXp(heroes.get(i).getLevel(),
-                                        heroes.get(j).getLevel()));
+                            hero1.attack(hero2,
+                                    terrainType[hero1.getX()].charAt(hero1.getY()));
+                            hero2.attack(hero1,
+                                    terrainType[hero1.getX()].charAt(hero2.getY()));
+                            level = hero2.getLevel();
+
+                            if (!hero1.isAlive()) {
+                                hero2.addXp(calcXp(hero1.getLevel(),
+                                        hero2.getLevel()));
                             }
-                            if (!heroes.get(j).isAlive()) {
-                                heroes.get(i).addXp(calcXp(level, heroes.get(i).getLevel()));
+
+                            if (!hero2.isAlive()) {
+                                observer.notifyDeath(hero1, hero2);
+                                hero1.addXp(calcXp(level, hero1.getLevel()));
+                            }
+
+                            if (!hero1.isAlive()) {
+                                observer.notifyDeath(hero2, hero1);
                             }
                         }
+                    }
+                }
+            }
+            if (angelsNumber.get(round) != 0) {
+                playAngels(currentAngels);
+            }
+
+            outputFile.printLine("");
+            if (round < rounds - 1) {
+                outputFile.printLine("~~ Round " + (round + 2) + " ~~");
+            }
+        }
+        outputFile.printLine("~~ Results ~~");
+    }
+
+    private void playStrategies() {
+        for (Hero hero : heroes) {
+            if (!hero.isIncapacitated() && hero.isAlive()) {
+                hero.applyStrategy();
+            }
+        }
+    }
+    
+    private void playAngels(List<Angel> angelList) {
+        for (Angel angel : angelList) {
+            for (Hero hero : heroes) {
+                if (angel.getX() == hero.getX()
+                        && angel.getY() == hero.getY()) {
+                    if (hero.isAlive()) {
+                        hero.acceptAngel(angel);
                     }
                 }
             }
@@ -137,13 +197,16 @@ public class GameLogic {
     /**
      * Create the heroes using their type and initial coordinates.
      */
-    public void createHeroes() {
+    private void createHeroes() {
         HeroFactory heroFactory = HeroFactory.getInstance();
+        int k = 0;
         for (HeroInfo heroInfo : heroesInfo) {
             heroes.add(heroFactory.createHero(
                     heroInfo.getType(),
                     heroInfo.getRow(),
                     heroInfo.getColumn()));
+            heroes.get(k).setId(k);
+            k++;
         }
     }
 

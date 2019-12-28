@@ -9,9 +9,11 @@ public final class GameInput {
     private int mWidth;
     private int mRounds;
     private int mPlayersNumber;
+    private List<Integer> mAngelsNumber;
     private String[] mTerrainType;
     private List<HeroInfo> mPlayers;
     private List<String> mMoves;
+    private List<List<String>> angels;
 
     public GameInput(final int length,
                      final int width,
@@ -19,7 +21,9 @@ public final class GameInput {
                      final int playersNumber,
                      final List<HeroInfo> players,
                      final String[] terrainType,
-                     final List<String> moves) {
+                     final List<String> moves,
+                     final List<Integer> angelsNumber,
+                     final List<List<String>> angels) {
         mLength = length;
         mWidth = width;
         mRounds = rounds;
@@ -27,6 +31,8 @@ public final class GameInput {
         mPlayers = players;
         mTerrainType = terrainType;
         mMoves = moves;
+        mAngelsNumber = angelsNumber;
+        this.angels = angels;
     }
 
     public int getLength() {
@@ -57,10 +63,20 @@ public final class GameInput {
         return mWidth;
     }
 
+    public List<Integer> getAngelsNumber() {
+        return mAngelsNumber;
+    }
+
+    public List<List<String>> getAngels() {
+        return angels;
+    }
+
     public boolean isValidInput() {
         boolean membersInstantiated = mPlayers != null
                 && mTerrainType != null
-                && mMoves != null;
+                && mMoves != null
+                && angels != null
+                && mAngelsNumber != null;
         boolean membersNotEmpty = mLength > 0
                 && mPlayersNumber > 0
                 && mRounds > 0

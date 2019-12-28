@@ -1,5 +1,10 @@
 package heroes;
 
+import angels.Angel;
+import strategies.Context;
+import strategies.DeffenseStrategies;
+import strategies.OffensiveStrategies;
+
 import static commons.PyromancerModifiers.FIREBLAST_DAMAGE_PER_LEVEL;
 import static commons.PyromancerModifiers.FIREBLAST_DAMAGE;
 import static commons.PyromancerModifiers.IGNITE_INSTANT;
@@ -71,10 +76,6 @@ public class Pyromancer extends Hero {
          enemy.setOvertimeDamage(Math.round(ignitePassiveDamage), 2);
     }
 
-    public void acceptAngel(Angel angel) {
-        angel.visit(this);
-    }
-
     /**
      * Getter for unmodified damage.
      * @param landType
@@ -108,6 +109,18 @@ public class Pyromancer extends Hero {
         fireblast_rogue += percent;
     }
 
+    @Override
+    public void applyStrategy() {
+        if (getMaxHp()/4 < getHp() && getHp() < getMaxHp()/3) {
+            Context context = new Context(new OffensiveStrategies());
+            context.executeStrategy(this);
+        }
+        if (getHp() < getMaxHp() / 4) {
+            Context context = new Context(new DeffenseStrategies());
+            context.executeStrategy(this);
+        }
+    }
+
     /**
      * Reset health points to default value.
      */
@@ -123,5 +136,15 @@ public class Pyromancer extends Hero {
     @Override
     public int getMaxHp() {
         return (HEALTH + (HEALTH_PER_LEVEL * this.getLevel()));
+    }
+
+    @Override
+    public void acceptAngel(Angel angel) {
+        angel.visit(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Pyromancer";
     }
 }

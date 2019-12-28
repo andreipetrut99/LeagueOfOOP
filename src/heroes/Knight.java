@@ -1,5 +1,10 @@
 package heroes;
 
+import angels.Angel;
+import strategies.Context;
+import strategies.DeffenseStrategies;
+import strategies.OffensiveStrategies;
+
 import static commons.Constants.EXECUTE_DAMAGE;
 import static commons.Constants.EXECUTE_DAMAGE_PER_LEVEL;
 import static commons.Constants.SLAM_DAMAGE;
@@ -89,6 +94,18 @@ public class Knight extends Hero {
         execute_pyromancer += percent;
     }
 
+    @Override
+    public void applyStrategy() {
+        if (getMaxHp()/3 < getHp() && getHp() < getMaxHp()/2) {
+            Context context = new Context(new OffensiveStrategies());
+            context.executeStrategy(this);
+        }
+        if (getHp() < getMaxHp() / 3) {
+            Context context = new Context(new DeffenseStrategies());
+            context.executeStrategy(this);
+        }
+    }
+
     /**
      * Method for attacking the enemy and decrease his health.
      *
@@ -137,4 +154,13 @@ public class Knight extends Hero {
         enemy.setInstantDamage(Math.round(slamDamage));
     }
 
+    @Override
+    public void acceptAngel(Angel angel) {
+        angel.visit(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Knight";
+    }
 }

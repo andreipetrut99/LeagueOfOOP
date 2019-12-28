@@ -1,5 +1,10 @@
 package heroes;
 
+import angels.Angel;
+import strategies.Context;
+import strategies.DeffenseStrategies;
+import strategies.OffensiveStrategies;
+
 import static commons.RogueModifiers.BACKSTAB;
 import static commons.RogueModifiers.BACKSTAB_PER_LEVEL;
 import static commons.RogueModifiers.PARALYSIS;
@@ -17,7 +22,7 @@ public class Rogue extends Hero {
     private float backstab_rogue = 1.2f;
     private float backstab_knight = 0.9f;
     private float backstab_pyromancer = 1.25f;
-    private float backstab_wizard = 1.25f
+    private float backstab_wizard = 1.25f;
     private float paralysis_rogue = 0.9f;
     private float paralysis_knight = 0.8f;
     private float paralysis_pyromancer = 1.2f;
@@ -113,12 +118,10 @@ public class Rogue extends Hero {
                  backstabDamage = backstabDamage * CRITICAL_HIT;
              }
          }
-        System.out.println(backstabDamage + " " + paralysisDamage);
         if (landType == 'W') {
             backstabDamage = backstabDamage * LAND_MODIFIER;
             paralysisDamage = paralysisDamage * LAND_MODIFIER;
         }
-        System.out.println(backstabDamage + " " + paralysisDamage);
         return Math.round(backstabDamage) + Math.round(paralysisDamage);
     }
 
@@ -132,5 +135,26 @@ public class Rogue extends Hero {
         paralysis_pyromancer += percent;
         paralysis_knight += percent;
         paralysis_rogue += percent;
+    }
+    @Override
+    public void acceptAngel(Angel angel) {
+        angel.visit(this);
+    }
+
+    @Override
+    public void applyStrategy() {
+        if (getMaxHp()/7 < getHp() && getHp() < getMaxHp()/5) {
+            Context context = new Context(new OffensiveStrategies());
+            context.executeStrategy(this);
+        }
+        if (getHp() < getMaxHp() / 7) {
+            Context context = new Context(new DeffenseStrategies());
+            context.executeStrategy(this);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Rogue";
     }
 }

@@ -1,7 +1,12 @@
 package strategies;
 
-import heroes.Hero;
+import heroes.*;
 
-public interface Strategy {
-    public void applyStrategy(Hero hero);
+public abstract class Strategy {
+    void applyStrategy(Knight hero) {}
+    void applyStrategy(Pyromancer hero) {}
+    void applyStrategy(Rogue hero) {}
+    void applyStrategy(Wizard hero) {}
+    void applyStrategy(Hero hero) {}
+
 }

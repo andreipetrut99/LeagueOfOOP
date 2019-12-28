@@ -1,5 +1,10 @@
 package heroes;
 
+import angels.Angel;
+import strategies.Context;
+import strategies.DeffenseStrategies;
+import strategies.OffensiveStrategies;
+
 import static commons.WizardModifiers.DEFLECT_MAX_PERCENT;
 import static commons.WizardModifiers.DEFLECT_MIN_PERCENT;
 import static commons.WizardModifiers.DEFLECT_PERCENT;
@@ -104,4 +109,25 @@ public class Wizard extends Hero {
         deflect_rogue += percent;
     }
 
+    @Override
+    public void applyStrategy() {
+        if (getMaxHp()/4 < getHp() && getHp() < getMaxHp()/2) {
+            Context context = new Context(new OffensiveStrategies());
+            context.executeStrategy(this);
+        }
+        if (getHp() < getMaxHp() / 4) {
+            Context context = new Context(new DeffenseStrategies());
+            context.executeStrategy(this);
+        }
+    }
+
+    @Override
+    public void acceptAngel(Angel angel) {
+        angel.visit(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Wizard";
+    }
 }

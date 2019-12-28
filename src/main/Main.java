@@ -2,6 +2,7 @@ package main;
 
 import heroes.Hero;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public final class Main {
         //just to trick checkstyle
     }
     public static void main(final String[] args) {
-        GameInputLoader gameInputLoader = new GameInputLoader(args[0], args[1]);
+        GameInputLoader gameInputLoader = GameInputLoader.getInstance(args[0], args[1]);
         GameInput gameInput = gameInputLoader.load();
 
         GameLogic gameLogic = new GameLogic(gameInput);
@@ -21,6 +22,17 @@ public final class Main {
 
         List<Hero> heroes;
         heroes = gameLogic.getHeroes();
-        gameInputLoader.print(heroes);
+        for (Hero hero : heroes) {
+            if (!hero.isAlive()) {
+                gameInputLoader.printLine(hero.getHeroType() + " " + "dead");
+            } else {
+                gameInputLoader.printLine(hero.getHeroType() + " "
+                        + hero.getLevel() + " "
+                        + hero.getXp() + " "
+                        + hero.getHp() + " "
+                        + hero.getX() + " "
+                        + hero.getY());
+            }
+        }
     }
 }

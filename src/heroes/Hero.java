@@ -1,9 +1,12 @@
 package heroes;
 
+import admin.TheGreatWizard;
+import angels.Angel;
+
 import static commons.Constants.*;
 
 public abstract class Hero {
-    private int x, y;
+    private int x, y, id;
     private int xp = 0;
     private int level = 0;
     private int xpLevelUp;
@@ -12,6 +15,9 @@ public abstract class Hero {
     private String heroType;
     private int overtimeDamage;
     private boolean incapacitated = false;
+    private TheGreatWizard observer = TheGreatWizard.getInstance();
+
+
     private int incapacitatedRounds;
     private int affectedRounds;
     private boolean overtimeAffected = false;
@@ -69,7 +75,6 @@ public abstract class Hero {
         this.incapacitatedRounds = incapacitatedRounds;
         this.incapacitated = true;
     }
-
     /**
      * Loop through this method every round and decrease incapacitated rounds.
      */
@@ -96,6 +101,14 @@ public abstract class Hero {
      */
     public int getLevel() {
         return level;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     /**
      * Check if a hero is alive.
@@ -132,6 +145,7 @@ public abstract class Hero {
             level += 1;
             xpLevelUp = MIN_XP + (level * XP_PER_LEVEL);
             resetHp();
+            observer.notifyLevelUp(this);
         }
 
     }
@@ -191,9 +205,12 @@ public abstract class Hero {
         return this.hp;
     }
 
+
     public abstract void resetHp();
     public abstract int getMaxHp();
     public abstract void attack(Hero hero, char landType);
     public abstract float getUnmodifiedDamage(char landType);
     public abstract void changeModifiers(float percent);
+    public abstract void applyStrategy();
+    public abstract void acceptAngel(Angel angel);
 }
