@@ -6,34 +6,24 @@ import strategies.DeffenseStrategies;
 import strategies.OffensiveStrategies;
 import strategies.Strategy;
 
-import static commons.RogueModifiers.BACKSTAB;
-import static commons.RogueModifiers.BACKSTAB_PER_LEVEL;
-import static commons.RogueModifiers.PARALYSIS;
-import static commons.RogueModifiers.PARALYSIS_MAX_ROUNDS;
-import static commons.RogueModifiers.PARALYSIS_MIN_ROUNDS;
-import static commons.RogueModifiers.PARALYSIS_PER_LEVEL;
-import static commons.RogueModifiers.CRITICAL_HIT;
-import static commons.RogueModifiers.LAND_MODIFIER;
-import static commons.RogueModifiers.INITIAL_HITS;
-import static commons.RogueModifiers.HEALTH;
-import static commons.RogueModifiers.HEALTH_PER_LEVEL;
+import static commons.RogueModifiers.*;
 
 public class Rogue extends Hero {
-    private float unmodifiedDamage;
-    private float backstab_rogue = 1.2f;
-    private float backstab_knight = 0.9f;
-    private float backstab_pyromancer = 1.25f;
-    private float backstab_wizard = 1.25f;
-    private float paralysis_rogue = 0.9f;
-    private float paralysis_knight = 0.8f;
-    private float paralysis_pyromancer = 1.2f;
-    private float paralysiss_wizard = 1.25f;
+    private float backstabRogue = BACKSTAB_ROGUE;
+    private float backstabKnight = BACKSTAB_KNIGHT;
+    private float backstabPyromancer = BACKSTAB_PYROMANCER;
+    private float backstabWizard = BACKSTAB_WIZARD;
+    private float paralysisRogue = PARALYSIS_ROGUE;
+    private float paralysisKnight = PARALYSIS_KNIGHT;
+    private float paralysisPyromancer = PARALYSIS_PYROMANCER;
+    private float paralysissWizard = PARALYSIS_WIZARD;
     private int backstabHits = INITIAL_HITS;
     private boolean attacked = false;
-     public Rogue(final int x, final int y, final String landType) {
-         super(x, y, landType);
-         setHp(HEALTH);
-     }
+
+    public Rogue(final int x, final int y, final String landType) {
+        super(x, y, landType);
+        setHp(HEALTH);
+    }
 
     /**
      * Resets hp to default value.
@@ -79,20 +69,19 @@ public class Rogue extends Hero {
         } else {
             paralysisRounds = PARALYSIS_MIN_ROUNDS;
         }
-        unmodifiedDamage = Math.round(backstabDamage) + Math.round(paralysisDamage);
 
         if (enemy instanceof Rogue) {
-            backstabDamage = backstabDamage * backstab_rogue;
-            paralysisDamage = paralysisDamage * paralysis_rogue;
+            backstabDamage = backstabDamage * backstabRogue;
+            paralysisDamage = paralysisDamage * paralysisRogue;
         } else if (enemy instanceof Knight) {
-            backstabDamage = backstabDamage * backstab_knight;
-            paralysisDamage = paralysisDamage * paralysis_knight;
+            backstabDamage = backstabDamage * backstabKnight;
+            paralysisDamage = paralysisDamage * paralysisKnight;
         } else if (enemy instanceof Pyromancer) {
-            backstabDamage = backstabDamage * backstab_pyromancer;
-            paralysisDamage = paralysisDamage * paralysis_pyromancer;
+            backstabDamage = backstabDamage * backstabPyromancer;
+            paralysisDamage = paralysisDamage * paralysisPyromancer;
         } else {
-            backstabDamage = backstabDamage * backstab_wizard;
-            paralysisDamage = paralysisDamage * paralysiss_wizard;
+            backstabDamage = backstabDamage * backstabWizard;
+            paralysisDamage = paralysisDamage * paralysissWizard;
         }
 
         enemy.setInstantDamage(Math.round(backstabDamage));
@@ -126,36 +115,58 @@ public class Rogue extends Hero {
         return Math.round(backstabDamage) + Math.round(paralysisDamage);
     }
 
+    /**
+     * Method that updates the modifiers.
+     * @param percent
+     */
     @Override
-    public void changeModifiers(float percent) {
-        backstab_wizard += percent;
-        backstab_pyromancer += percent;
-        backstab_knight += percent;
-        backstab_rogue += percent;
-        paralysiss_wizard += percent;
-        paralysis_pyromancer += percent;
-        paralysis_knight += percent;
-        paralysis_rogue += percent;
+    public void changeModifiers(final float percent) {
+        backstabWizard += percent;
+        backstabPyromancer += percent;
+        backstabKnight += percent;
+        backstabRogue += percent;
+        paralysissWizard += percent;
+        paralysisPyromancer += percent;
+        paralysisKnight += percent;
+        paralysisRogue += percent;
     }
+
+    /**
+     * Method that accept to get hero modified by angel.
+     * @param angel
+     */
     @Override
-    public void acceptAngel(Angel angel) {
+    public void acceptAngel(final Angel angel) {
         angel.visit(this);
     }
-    public void acceptStrategy(Strategy strategy) {
+
+    /**
+     * Method that accept to get hero modified by strategy.
+     * @param strategy
+     */
+    @Override
+    public void acceptStrategy(final Strategy strategy) {
         strategy.applyStrategy(this);
     }
 
+    /**
+     * Method which chooses the correct strategy.
+     */
     @Override
     public void applyStrategy() {
-        if (getMaxHp()/7 < getHp() && getHp() < getMaxHp()/5) {
+        if (getMaxHp() / INF_STEP < getHp() && getHp() < getMaxHp() / SUP_STEP) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        } else if (getHp() < getMaxHp() / 7) {
+        } else if (getHp() < getMaxHp() / INF_STEP) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
         }
     }
 
+    /**
+     * toString() method.
+     * @return type of Hero
+     */
     @Override
     public String toString() {
         return "Rogue";

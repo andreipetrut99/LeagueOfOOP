@@ -15,19 +15,16 @@ import static commons.Constants.UNMODIFIED_HP_LIMIT;
 import static commons.Constants.KNIGHT_HEALTH;
 import static commons.Constants.KNIGHT_HEALTH_PER_LEVEL;
 import static commons.Constants.CENT;
-
-import static commons.KnightModifiers.HP_LIMIT_MODIFIER;
-import static commons.KnightModifiers.HP_LIMIT_MODIFIER_MIN;
-import static commons.KnightModifiers.LAND_MODIFIER;
+import static commons.KnightModifiers.*;
 
 public class Knight extends Hero {
-    private float execute_rogue = 1.15f;
-    private float execute_pyromancer = 1.1f;
-    private float execute_wizard = 0.8f;
-    private float slam_rogue = 0.8f;
-    private float slam_knight = 1.2f;
-    private float slam_pyromancer = 0.9f;
-    private float slam_wizard = 1.05f;
+    private float executeRogue = EXECUTE_ROGUE;
+    private float executePyromancer = EXECUTE_PYROMANCER;
+    private float executeWizard = EXECUTE_WIZARD;
+    private float slamRogue = SLAM_ROGUE;
+    private float slamKnight = SLAM_KNIGHT;
+    private float slamPyromancer = SLAM_PYROMANCER;
+    private float slamWizard = SLAM_WIZARD;
 
     public Knight(final int x, final int y, final String heroType) {
         super(x, y, heroType);
@@ -82,32 +79,40 @@ public class Knight extends Hero {
 
     /**
      * Method for updating the modifiers.
+     *
      * @param percent
      */
     @Override
-    public void changeModifiers(float percent) {
-        slam_wizard += percent;
-        slam_knight += percent;
-        slam_rogue += percent;
-        slam_pyromancer += percent;
-        execute_wizard += percent;
-        execute_rogue += percent;
-        execute_pyromancer += percent;
+    public void changeModifiers(final float percent) {
+        slamWizard += percent;
+        slamKnight += percent;
+        slamRogue += percent;
+        slamPyromancer += percent;
+        executeWizard += percent;
+        executeRogue += percent;
+        executePyromancer += percent;
     }
 
+    /**
+     * Method which chooses the correct strategy.
+     */
     @Override
     public void applyStrategy() {
-        if (getMaxHp()/3 < getHp() && getHp() < getMaxHp()/2) {
+        if (getMaxHp() / STRATEGY_STEP < getHp() && getHp() < getMaxHp() / 2) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        } else if (getHp() < getMaxHp() / 3) {
+        } else if (getHp() < getMaxHp() / STRATEGY_STEP) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
-            System.out.println("sad");
         }
     }
 
-    public void acceptStrategy(Strategy strategy) {
+    /**
+     * Method that accept that hero will be modified by strategy.
+     *
+     * @param strategy
+     */
+    public void acceptStrategy(final Strategy strategy) {
         strategy.applyStrategy(this);
     }
 
@@ -138,16 +143,16 @@ public class Knight extends Hero {
         }
 
         if (enemy instanceof Pyromancer) {
-            executeDamage = executeDamage * execute_pyromancer;
-            slamDamage = slamDamage * slam_pyromancer;
+            executeDamage = executeDamage * executePyromancer;
+            slamDamage = slamDamage * slamPyromancer;
         } else if (enemy instanceof Rogue) {
-            executeDamage = executeDamage * execute_rogue;
-            slamDamage = slamDamage * slam_rogue;
+            executeDamage = executeDamage * executeRogue;
+            slamDamage = slamDamage * slamRogue;
         } else if (enemy instanceof Wizard) {
-            executeDamage = executeDamage * execute_wizard;
-            slamDamage = slamDamage * slam_wizard;
+            executeDamage = executeDamage * executeWizard;
+            slamDamage = slamDamage * slamWizard;
         } else {
-            slamDamage = slamDamage * slam_knight;
+            slamDamage = slamDamage * slamKnight;
         }
 
         if (enemy.getHp() < Math.round(hpLimit)) {
@@ -159,11 +164,21 @@ public class Knight extends Hero {
         enemy.setInstantDamage(Math.round(slamDamage));
     }
 
+    /**
+     * Method that accept that hero will be modified by angel.
+     *
+     * @param angel
+     */
     @Override
-    public void acceptAngel(Angel angel) {
+    public void acceptAngel(final Angel angel) {
         angel.visit(this);
     }
 
+    /**
+     * toString method.
+     *
+     * @return type of hero.
+     */
     @Override
     public String toString() {
         return "Knight";

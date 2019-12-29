@@ -6,28 +6,20 @@ import strategies.DeffenseStrategies;
 import strategies.OffensiveStrategies;
 import strategies.Strategy;
 
-import static commons.PyromancerModifiers.FIREBLAST_DAMAGE_PER_LEVEL;
-import static commons.PyromancerModifiers.FIREBLAST_DAMAGE;
-import static commons.PyromancerModifiers.IGNITE_INSTANT;
-import static commons.PyromancerModifiers.IGNITE_INSTANT_PER_LEVEL;
-import static commons.PyromancerModifiers.IGNITE_PASSIVE;
-import static commons.PyromancerModifiers.IGNITE_PASSIVE_PER_LEVEL;
-import static commons.PyromancerModifiers.HEALTH;
-import static commons.PyromancerModifiers.HEALTH_PER_LEVEL;
-import static commons.PyromancerModifiers.LAND_MODIFIER;
+import static commons.PyromancerModifiers.*;
 
 public class Pyromancer extends Hero {
     private float fireblastDamage;
     private float igniteInstantDamage;
     private float ignitePassiveDamage;
-    float fireblast_rogue = 0.8f;
-    float fireblast_knight = 1.2f;
-    float fireblast_pyromancer = 0.9f;
-    float fireblast_wizard = 1.05f;
-    float ignite_rogue = 0.8f;
-    float ignite_pyromancer = 0.9f;
-    float ignite_knight = 1.2f;
-    float ignite_wizard = 1.05f;
+    private float fireblastRogue = FIREBLAST_ROGUE;
+    private float fireblastKnight = FIREBLAST_KNIGHT;
+    private float fireblastPyromancer = FIREBLAST_PYROMANCER;
+    private float fireblastWizard = FIREBLAST_WIZARD;
+    private float igniteRogue = IGNITE_ROGUE;
+    private float ignitePyromancer = IGNITE_PYROMANCER;
+    private float igniteKnight = IGNITE_KNIGHT;
+    private float igniteWizard = IGNITE_WIZARD;
 
 
     public Pyromancer(final int x, final int y, final String landType) {
@@ -55,21 +47,21 @@ public class Pyromancer extends Hero {
         }
 
          if (enemy instanceof  Rogue) {
-            fireblastDamage = fireblastDamage * fireblast_rogue;
-            igniteInstantDamage = igniteInstantDamage * ignite_rogue;
-            ignitePassiveDamage = ignitePassiveDamage * ignite_rogue;
+            fireblastDamage = fireblastDamage * fireblastRogue;
+            igniteInstantDamage = igniteInstantDamage * igniteRogue;
+            ignitePassiveDamage = ignitePassiveDamage * igniteRogue;
          } else if (enemy instanceof Knight) {
-             fireblastDamage = fireblastDamage * fireblast_knight;
-             igniteInstantDamage = igniteInstantDamage * ignite_knight;
-             ignitePassiveDamage = ignitePassiveDamage * ignite_knight;
+             fireblastDamage = fireblastDamage * fireblastKnight;
+             igniteInstantDamage = igniteInstantDamage * igniteKnight;
+             ignitePassiveDamage = ignitePassiveDamage * igniteKnight;
          } else if (enemy instanceof Wizard) {
-             fireblastDamage = fireblastDamage * fireblast_wizard;
-             igniteInstantDamage = igniteInstantDamage * ignite_wizard;
-             ignitePassiveDamage = ignitePassiveDamage * ignite_wizard;
+             fireblastDamage = fireblastDamage * fireblastWizard;
+             igniteInstantDamage = igniteInstantDamage * igniteWizard;
+             ignitePassiveDamage = ignitePassiveDamage * igniteWizard;
          } else if (enemy instanceof Pyromancer) {
-             fireblastDamage = fireblastDamage * fireblast_pyromancer;
-             igniteInstantDamage = igniteInstantDamage * ignite_pyromancer;
-             ignitePassiveDamage = ignitePassiveDamage * ignite_pyromancer;
+             fireblastDamage = fireblastDamage * fireblastPyromancer;
+             igniteInstantDamage = igniteInstantDamage * ignitePyromancer;
+             ignitePassiveDamage = ignitePassiveDamage * ignitePyromancer;
          }
 
          enemy.setInstantDamage(Math.round(fireblastDamage));
@@ -93,7 +85,13 @@ public class Pyromancer extends Hero {
         return (FIREBLAST_DAMAGE + (FIREBLAST_DAMAGE_PER_LEVEL * this.getLevel()))
                 + (IGNITE_INSTANT + (IGNITE_INSTANT_PER_LEVEL * this.getLevel()));
     }
-    public void acceptStrategy(Strategy strategy) {
+
+    /**
+     * Method that accept that hero will be modified by strategy.
+     *
+     * @param strategy
+     */
+    public void acceptStrategy(final Strategy strategy) {
         strategy.applyStrategy(this);
     }
 
@@ -103,22 +101,25 @@ public class Pyromancer extends Hero {
      */
     @Override
     public void changeModifiers(final float percent) {
-        ignite_pyromancer += percent;
-        ignite_wizard += percent;
-        ignite_knight += percent;
-        ignite_rogue += percent;
-        fireblast_pyromancer += percent;
-        fireblast_wizard += percent;
-        fireblast_knight += percent;
-        fireblast_rogue += percent;
+        ignitePyromancer += percent;
+        igniteWizard += percent;
+        igniteKnight += percent;
+        igniteRogue += percent;
+        fireblastPyromancer += percent;
+        fireblastWizard += percent;
+        fireblastKnight += percent;
+        fireblastRogue += percent;
     }
 
+    /**
+     * Method which chooses the correct strategy.
+     */
     @Override
     public void applyStrategy() {
-        if (getMaxHp()/4 < getHp() && getHp() < getMaxHp()/3) {
+        if (getMaxHp() / INF_LIMIT < getHp() && getHp() < getMaxHp() / SUP_LIMIT) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        } else if (getHp() < getMaxHp() / 4) {
+        } else if (getHp() < getMaxHp() / INF_LIMIT) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
         }
@@ -141,11 +142,19 @@ public class Pyromancer extends Hero {
         return (HEALTH + (HEALTH_PER_LEVEL * this.getLevel()));
     }
 
+    /**
+     * Method that accept angel as a modifier.
+     * @param angel
+     */
     @Override
-    public void acceptAngel(Angel angel) {
+    public void acceptAngel(final Angel angel) {
         angel.visit(this);
     }
 
+    /**
+     * toString() method.
+     * @return thype of hero
+     */
     @Override
     public String toString() {
         return "Pyromancer";

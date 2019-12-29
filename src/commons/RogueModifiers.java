@@ -23,5 +23,7 @@ public final class RogueModifiers {
     public static final int PARALYSIS_MAX_ROUNDS = 6;
     public static final int PARALYSIS_MIN_ROUNDS = 3;
     public static final float CRITICAL_HIT = 1.5f;
+    public static final int INF_STEP = 7;
+    public static final int SUP_STEP = 5;
 
 }

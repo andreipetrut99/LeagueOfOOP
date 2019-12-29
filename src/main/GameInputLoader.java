@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GameInputLoader {
+public final class GameInputLoader {
     private final String mInputPath;
     private final String mOutputPath;
     private static GameInputLoader instance = null;
@@ -23,7 +23,8 @@ public class GameInputLoader {
 
     public static GameInputLoader getInstance(final String inputPath, final String outputPath) {
         if (instance == null) {
-            return instance = new GameInputLoader(inputPath, outputPath);
+            instance = new GameInputLoader(inputPath, outputPath);
+            return instance;
         }
         return instance;
     }
@@ -70,7 +71,7 @@ public class GameInputLoader {
                 moves.add(fs.nextWord());
             }
 
-            for(int i = 0; i < rounds; i++) {
+            for (int i = 0; i < rounds; i++) {
                 angelsPerRound.add(fs.nextInt());
                 if (angelsPerRound.get(i) != 0) {
                     List<String> aux = new LinkedList<String>();
@@ -123,8 +124,8 @@ public class GameInputLoader {
     public void printLine(final String s) {
         File log = new File(mOutputPath);
 
-        try{
-            if(!log.exists()){
+        try {
+            if (!log.exists()) {
                 log.createNewFile();
             }
 
@@ -134,7 +135,7 @@ public class GameInputLoader {
             bufferedWriter.write(s + "\n");
             bufferedWriter.close();
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("COULD NOT LOG!!");
         }
     }

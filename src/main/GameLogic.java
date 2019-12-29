@@ -99,19 +99,6 @@ public class GameLogic {
             }
 
             outputFile.printLine("");
-
-            /*outputFile.printLine("~~ DEBUG Results ~~");
-            for (Hero hero : heroes) {
-               {
-                    outputFile.printLine(hero.getHeroType() + " "
-                            + hero.getLevel() + " "
-                            + hero.getXp() + " "
-                            + hero.getHp() + " "
-                            + hero.getX() + " "
-                            + hero.getY());
-                }
-            }*/
-
             if (round < rounds - 1) {
                 outputFile.printLine("~~ Round " + (round + 2) + " ~~");
             }

@@ -6,27 +6,17 @@ import strategies.DeffenseStrategies;
 import strategies.OffensiveStrategies;
 import strategies.Strategy;
 
-import static commons.WizardModifiers.DEFLECT_MAX_PERCENT;
-import static commons.WizardModifiers.DEFLECT_MIN_PERCENT;
-import static commons.WizardModifiers.DEFLECT_PERCENT;
-import static commons.WizardModifiers.DRAIN_PERCENT;
-import static commons.WizardModifiers.DRAIN_PERCENT_MIN;
-import static commons.WizardModifiers.LAND_MODIFIER;
-import static commons.WizardModifiers.HEALTH_PER_LEVEL;
-import static commons.WizardModifiers.HEALTH;
-import static commons.WizardModifiers.LEVEL_MAX;
-import static commons.WizardModifiers.MIN_DRAIN;
+import static commons.WizardModifiers.*;
 
 
 public class Wizard extends Hero {
-    private float drain_rogue = 0.8f;
-    private float drain_knight = 1.2f;
-    private float drain_pyromancer = 0.9f;
-    private float drain_wizard = 1.05f;
-    private float deflect_rogue = 1.2f;
-    private float deflect_knight = 1.4f;
-    private float deflect_pyromancer = 1.3f;
-    private float deflect_wizard = 0f;
+    private float drainRogue = DRAIN_ROGUE;
+    private float drainKnight = DRAIN_KNIGHT;
+    private float drainPyromancer = DRAIN_PYROMANCER;
+    private float drainWizard = DRAIN_WIZARD;
+    private float deflectRogue = DEFLECT_ROGUE;
+    private float deflectKnight = DEFLECT_KNIGHT;
+    private float deflectPyromancer = DEFLECT_PYROMANCER;
 
     public Wizard(final int x, final int y, final String landType) {
         super(x, y, landType);
@@ -66,17 +56,17 @@ public class Wizard extends Hero {
         }
 
         if (enemy instanceof Rogue) {
-            drainPercent = drain_rogue * drainPercent;
-            deflectPercent = deflect_rogue * deflectPercent;
+            drainPercent = drainRogue * drainPercent;
+            deflectPercent = deflectRogue * deflectPercent;
         } else if (enemy instanceof Knight) {
-            drainPercent = drain_knight * drainPercent;
-            deflectPercent = deflect_knight * deflectPercent;
+            drainPercent = drainKnight * drainPercent;
+            deflectPercent = deflectKnight * deflectPercent;
         } else if (enemy instanceof Pyromancer) {
-            drainPercent = drain_pyromancer * drainPercent;
-            deflectPercent = deflect_pyromancer * deflectPercent;
+            drainPercent = drainPyromancer * drainPercent;
+            deflectPercent = deflectPyromancer * deflectPercent;
         } else {
-            drainPercent = drain_wizard * drainPercent;
-            deflectPercent = deflect_wizard;
+            drainPercent = drainWizard * drainPercent;
+            deflectPercent = 0;
         }
         float drainDamage = drainPercent * (Math.min(MIN_DRAIN * enemy.getMaxHp(), enemy.getHp()));
         float deflectDamage = deflectPercent * enemy.getUnmodifiedDamage(landType);
@@ -97,36 +87,56 @@ public class Wizard extends Hero {
         return 0;
     }
 
+    /**
+     * Method that updates the modifiers.
+     * @param percent
+     */
     @Override
-    public void changeModifiers(float percent) {
-        drain_knight += percent;
-        drain_pyromancer += percent;
-        drain_rogue += percent;
-        drain_wizard += percent;
-        deflect_knight += percent;
-        deflect_pyromancer += percent;
-        deflect_rogue += percent;
+    public void changeModifiers(final float percent) {
+        drainKnight += percent;
+        drainPyromancer += percent;
+        drainRogue += percent;
+        drainWizard += percent;
+        deflectKnight += percent;
+        deflectPyromancer += percent;
+        deflectRogue += percent;
     }
 
+    /**
+     * Method that chooses the correct strategy and applies it.
+     */
     @Override
     public void applyStrategy() {
-        if (getMaxHp()/4 < getHp() && getHp() < getMaxHp()/2) {
+        if (getMaxHp() / INF_LIMIT < getHp() && getHp() < getMaxHp() / SUP_LIMIT) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        } else if (getHp() < getMaxHp() / 4) {
+        } else if (getHp() < getMaxHp() / INF_LIMIT) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
         }
     }
 
+    /**
+     * Method that accepts an angel.
+     * @param angel
+     */
     @Override
-    public void acceptAngel(Angel angel) {
+    public void acceptAngel(final Angel angel) {
         angel.visit(this);
     }
 
-    public void acceptStrategy(Strategy strategy) {
+    /**
+     * Method that accepts strategy.
+     * @param strategy
+     */
+    public void acceptStrategy(final Strategy strategy) {
         strategy.applyStrategy(this);
     }
+
+    /**
+     * toString() method.
+     * @return type of hero
+     */
     @Override
     public String toString() {
         return "Wizard";

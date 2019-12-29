@@ -21,5 +21,7 @@ public final class PyromancerModifiers {
     public static final int IGNITE_PASSIVE_PER_LEVEL = 30;
     public static final float LAND_MODIFIER = 1.25F;
     public static final int HEALTH_PER_LEVEL = 50;
+    public static final int INF_LIMIT = 4;
+    public static final int SUP_LIMIT = 3;
 
 }

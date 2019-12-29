@@ -2,24 +2,23 @@ package angels;
 
 import heroes.Hero;
 
-import java.util.LinkedList;
 import java.util.List;
 
-public class AngelFactory {
+public final class AngelFactory {
     private static AngelFactory instance = null;
-    private List<Angel> angels;
 
     private AngelFactory() {
     }
 
     public static AngelFactory getInstance() {
         if (instance == null) {
-            return instance = new AngelFactory();
+            instance = new AngelFactory();
+            return instance;
         }
         return instance;
     }
 
-    public void createAngels(List<String> stringList, List<Hero> heroes) {
+    public void createAngels(final List<String> stringList, final List<Hero> heroes) {
         Angel angel = null;
         for (String string : stringList) {
             String[] info = string.split(",");
@@ -71,7 +70,7 @@ public class AngelFactory {
         }
     }
 
-    private void playAngel(Angel angel, List<Hero> heroes) {
+    private void playAngel(final Angel angel, final List<Hero> heroes) {
             for (Hero hero : heroes) {
                 if (angel.getX() == hero.getX()
                         && angel.getY() == hero.getY()) {

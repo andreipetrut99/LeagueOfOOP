@@ -2,7 +2,6 @@ package main;
 
 import heroes.Hero;
 
-import java.io.IOException;
 import java.util.List;
 
 /**

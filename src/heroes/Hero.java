@@ -4,7 +4,8 @@ import admin.TheGreatWizard;
 import angels.Angel;
 import strategies.Strategy;
 
-import static commons.Constants.*;
+import static commons.Constants.XP_PER_LEVEL;
+import static commons.Constants.MIN_XP;
 
 public abstract class Hero {
     private int x, y, id;
@@ -31,34 +32,13 @@ public abstract class Hero {
     }
 
     /**
-     * Setting an instant damage to this hero.
-     * @param damage taken instantly.
-     */
-    public void setInstantDamage(final int damage) {
-        hp -= damage;
-        if (hp <= 0) {
-            this.isAlive = false;
-        }
-    }
-
-    /**
-     * Setting overtime damage for abilities like ignite or paralysis.
-     * @param damage taken every round.
-     * @param rounds to take damage.
-     */
-    public void setOvertimeDamage(final int damage, final int rounds) {
-        this.affectedRounds = rounds;
-        this.overtimeDamage = damage;
-        this.overtimeAffected = true;
-    }
-
-    /**
      * Loop and add damage every round.
      */
     public void addOvertimeDamage() {
         if (overtimeAffected) {
-            if (this.isAlive)
+            if (this.isAlive) {
                 setInstantDamage(overtimeDamage);
+            }
             affectedRounds--;
             if (affectedRounds == 0) {
                 overtimeAffected = false;
@@ -70,14 +50,6 @@ public abstract class Hero {
     }
 
     /**
-     * Make a player incapacitated for a number of rounds.
-     * @param incapacitatedRounds
-     */
-    public void setIncapacitation(final int incapacitatedRounds) {
-        this.incapacitatedRounds = incapacitatedRounds;
-        this.incapacitated = true;
-    }
-    /**
      * Loop through this method every round and decrease incapacitated rounds.
      */
     public void loopIncapacitation() {
@@ -87,53 +59,6 @@ public abstract class Hero {
         if (incapacitatedRounds == 0) {
             incapacitated = false;
         }
-    }
-
-    /**
-     * Check if a player is incapacitated.
-     * @return boolean incapacitated
-     */
-    public boolean isIncapacitated() {
-        return incapacitated;
-    }
-
-    /**
-     * Getter for hero level.
-     * @return hero level.
-     */
-    public int getLevel() {
-        return level;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    /**
-     * Check if a hero is alive.
-     * @return boolean isAlive.
-     */
-    public boolean isAlive() {
-        return isAlive;
-    }
-
-    /**
-     * Get xPos of this hero.
-     * @return integer x.
-     */
-    public int getX() {
-        return x;
-    }
-
-    /**
-     * Get yPos of this hero.
-     * @return integer y.
-     */
-    public int getY() {
-        return y;
     }
 
     /**
@@ -152,6 +77,96 @@ public abstract class Hero {
 
     }
 
+    /**
+     * Setting an instant damage to this hero.
+     * @param damage taken instantly.
+     */
+    public void setInstantDamage(final int damage) {
+        hp -= damage;
+        if (hp <= 0) {
+            this.isAlive = false;
+        }
+    }
+    /**
+     * Setting overtime damage for abilities like ignite or paralysis.
+     * @param damage taken every round.
+     * @param rounds to take damage.
+     */
+    public void setOvertimeDamage(final int damage, final int rounds) {
+        this.affectedRounds = rounds;
+        this.overtimeDamage = damage;
+        this.overtimeAffected = true;
+    }
+
+    /**
+     * Make a player incapacitated for a number of rounds.
+     * @param incapacitatedRounds
+     */
+    public void setIncapacitation(final int incapacitatedRounds) {
+        this.incapacitatedRounds = incapacitatedRounds;
+        this.incapacitated = true;
+    }
+
+    /**
+     * Check if a player is incapacitated.
+     * @return boolean incapacitated
+     */
+    public boolean isIncapacitated() {
+        return incapacitated;
+    }
+
+    /**
+     * Getter for hero level.
+     * @return hero level.
+     */
+    public int getLevel() {
+        return level;
+    }
+
+    /**
+     * Getter for player id.
+     * @return int id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Setter for player id.
+     * @param id
+     */
+    public void setId(final int id) {
+        this.id = id;
+    }
+
+    /**
+     * Check if a hero is alive.
+     * @return boolean isAlive.
+     */
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    /**
+     * Get xPos of this hero.
+     * @return integer x.
+     */
+    public int getX() {
+        return x;
+    }
+    /**
+     * Get yPos of this hero.
+     * @return integer y.
+     */
+    public int getY() {
+        return y;
+    }
+
+
+    /**
+     * Getter for XP for level up.
+     * @return
+     */
     public int getXpLevelUp() {
         return MIN_XP + (level * XP_PER_LEVEL);
     }
