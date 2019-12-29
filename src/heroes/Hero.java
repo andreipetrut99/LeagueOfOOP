@@ -57,7 +57,8 @@ public abstract class Hero {
      */
     public void addOvertimeDamage() {
         if (overtimeAffected) {
-            setInstantDamage(overtimeDamage);
+            if (this.isAlive)
+                setInstantDamage(overtimeDamage);
             affectedRounds--;
             if (affectedRounds == 0) {
                 overtimeAffected = false;

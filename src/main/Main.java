@@ -22,6 +22,8 @@ public final class Main {
 
         List<Hero> heroes;
         heroes = gameLogic.getHeroes();
+
+        // print final results
         for (Hero hero : heroes) {
             if (!hero.isAlive()) {
                 gameInputLoader.printLine(hero.getHeroType() + " " + "dead");

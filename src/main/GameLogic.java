@@ -99,6 +99,19 @@ public class GameLogic {
             }
 
             outputFile.printLine("");
+
+            /*outputFile.printLine("~~ DEBUG Results ~~");
+            for (Hero hero : heroes) {
+               {
+                    outputFile.printLine(hero.getHeroType() + " "
+                            + hero.getLevel() + " "
+                            + hero.getXp() + " "
+                            + hero.getHp() + " "
+                            + hero.getX() + " "
+                            + hero.getY());
+                }
+            }*/
+
             if (round < rounds - 1) {
                 outputFile.printLine("~~ Round " + (round + 2) + " ~~");
             }
@@ -159,7 +172,7 @@ public class GameLogic {
         // Move every player by the rules of string move
         for (Hero hero : heroes) {
             heroIndex++;
-            if (!hero.isIncapacitated()) {
+            if (!hero.isIncapacitated() && hero.isAlive()) {
                 switch (String.valueOf(move.charAt(heroIndex))) {
                     case "U":
                         hero.setX(hero.getX() - 1);

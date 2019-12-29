@@ -57,12 +57,12 @@ public class Wizard extends Hero {
      */
     @Override
     public void attack(final Hero enemy, final char landType) {
-        float drainPercent = DRAIN_PERCENT + (DRAIN_PERCENT_MIN * enemy.getLevel());
+        float drainPercent = DRAIN_PERCENT + (DRAIN_PERCENT_MIN * this.getLevel());
         float deflectPercent;
         if (enemy.getLevel() > LEVEL_MAX) {
             deflectPercent = DEFLECT_PERCENT;
         } else {
-            deflectPercent = DEFLECT_MAX_PERCENT + (DEFLECT_MIN_PERCENT * enemy.getLevel());
+            deflectPercent = DEFLECT_MAX_PERCENT + (DEFLECT_MIN_PERCENT * this.getLevel());
         }
 
         if (enemy instanceof Rogue) {
@@ -84,9 +84,7 @@ public class Wizard extends Hero {
             drainDamage = Math.round(drainDamage * LAND_MODIFIER);
             deflectDamage = Math.round(deflectDamage * LAND_MODIFIER);
         }
-
         enemy.setInstantDamage(Math.round(drainDamage) + Math.round(deflectDamage));
-
     }
 
     /**
@@ -115,8 +113,7 @@ public class Wizard extends Hero {
         if (getMaxHp()/4 < getHp() && getHp() < getMaxHp()/2) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        }
-        if (getHp() < getMaxHp() / 4) {
+        } else if (getHp() < getMaxHp() / 4) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
         }

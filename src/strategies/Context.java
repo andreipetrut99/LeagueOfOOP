@@ -1,7 +1,6 @@
 package strategies;
 
 import heroes.Hero;
-import heroes.Knight;
 
 public class Context {
     private Strategy strategy;

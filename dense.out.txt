@@ -1,0 +1,1777 @@
+~~ Round 1 ~~
+Player Wizard 14 was killed by Rogue 25
+Angel DamageAngel was spawned at 1 1
+Angel DarkAngel was spawned at 2 2
+Angel Dracula was spawned at 3 1
+Angel GoodBoy was spawned at 5 1
+Angel LevelUpAngel was spawned at 5 5
+Angel LifeGiver was spawned at 7 2
+
+~~ DEBUG Results ~~
+P 0 0 500 3 18
+R 0 0 600 8 9
+R 0 0 600 8 15
+K 0 0 900 19 4
+K 0 0 900 0 2
+K 0 0 900 1 17
+K 0 0 900 8 16
+P 0 0 500 12 16
+W 0 0 400 8 3
+P 0 0 500 19 6
+R 0 0 600 7 0
+W 0 0 400 6 3
+P 0 0 500 14 13
+K 0 0 580 14 5
+W 0 0 -89 10 6
+W 0 0 400 0 4
+R 0 0 600 2 0
+P 0 0 500 18 4
+W 0 0 400 4 4
+K 0 0 900 7 10
+P 0 0 500 13 1
+P 0 0 500 16 17
+P 0 0 500 1 15
+P 0 0 500 16 13
+W 0 0 400 16 9
+R 0 200 407 10 6
+P 0 0 500 1 0
+P 0 0 500 11 16
+K 0 0 900 18 15
+W 0 0 400 14 12
+K 0 0 900 17 14
+K 0 0 900 12 13
+R 0 0 600 4 3
+W 0 0 400 4 19
+R 0 0 600 18 13
+P 0 0 500 2 9
+K 0 0 900 8 10
+W 0 0 400 7 7
+R 0 0 600 16 5
+K 0 0 900 0 9
+P 0 0 500 9 4
+W 0 0 400 17 9
+K 0 0 900 19 14
+R 0 0 600 7 5
+K 0 0 900 2 6
+R 0 0 600 5 13
+P 0 0 500 2 12
+W 0 0 400 16 19
+K 0 0 580 14 5
+P 0 0 500 1 18
+~~ Round 2 ~~
+Angel DamageAngel was spawned at 1 1
+Angel DarkAngel was spawned at 2 2
+Angel Dracula was spawned at 3 1
+Angel GoodBoy was spawned at 5 1
+Angel LevelUpAngel was spawned at 5 5
+Angel LifeGiver was spawned at 7 2
+
+~~ DEBUG Results ~~
+P 0 0 500 2 18
+R 0 0 600 8 10
+R 0 0 600 8 16
+K 0 0 900 18 4
+K 0 0 666 0 3
+K 0 0 900 1 16
+K 0 0 900 8 17
+P 0 0 500 12 15
+W 0 0 400 7 3
+P 0 0 500 19 7
+R 0 0 600 7 1
+W 0 0 400 6 4
+P 0 0 500 14 14
+K 0 0 260 14 5
+W 0 0 -89 10 6
+W 0 0 95 0 3
+R 0 0 600 2 1
+P 0 0 500 18 3
+W 0 0 400 3 4
+K 0 0 900 7 11
+P 0 0 500 14 1
+P 0 0 500 16 18
+P 0 0 500 1 14
+P 0 0 500 16 14
+W 0 0 400 16 10
+R 0 200 407 10 5
+P 0 0 500 0 0
+P 0 0 500 12 16
+K 0 0 900 18 16
+W 0 0 400 13 12
+K 0 0 900 17 15
+K 0 0 900 11 13
+R 0 0 600 5 3
+W 0 0 400 4 18
+R 0 0 600 18 14
+P 0 0 500 2 8
+K 0 0 900 8 9
+W 0 0 400 6 7
+R 0 0 600 16 4
+K 0 0 900 1 9
+P 0 0 500 9 3
+W 0 0 400 17 10
+K 0 0 900 19 13
+R 0 0 600 7 6
+K 0 0 900 1 6
+R 0 0 600 6 13
+P 0 0 500 1 12
+W 0 0 400 17 19
+K 0 0 260 14 5
+P 0 0 500 1 17
+~~ Round 3 ~~
+Player Knight 48 was killed by Knight 13
+Player Knight 13 was killed by Knight 48
+Player Wizard 47 was killed by Pyromancer 21
+Angel DamageAngel was spawned at 1 1
+Angel DarkAngel was spawned at 2 2
+DarkAngel hit Rogue 16
+Angel Dracula was spawned at 2 2
+Dracula hit Rogue 16
+Angel Dracula was spawned at 2 2
+Dracula hit Rogue 16
+Angel LifeGiver was spawned at 2 2
+LifeGiver helped Rogue 16
+Angel LifeGiver was spawned at 7 2
+
+~~ DEBUG Results ~~
+P 0 0 500 2 19
+R 0 0 600 9 10
+R 0 0 600 7 16
+K 0 0 900 18 5
+K 0 0 666 0 2
+K 0 0 900 2 16
+K 0 0 900 8 18
+P 0 0 500 11 15
+W 0 0 400 6 3
+P 0 0 500 19 8
+R 0 0 600 7 0
+W 0 0 400 6 5
+P 0 0 500 14 13
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 95 0 3
+R 0 0 600 2 2
+P 0 0 500 18 4
+W 0 0 400 3 5
+K 0 0 900 7 10
+P 0 0 500 14 2
+P 0 200 246 17 18
+P 0 0 500 1 13
+P 0 0 500 15 14
+W 0 0 400 16 11
+R 0 200 407 10 4
+P 0 0 500 0 1
+P 0 0 500 12 17
+K 0 0 900 19 16
+W 0 0 400 14 12
+K 0 0 688 18 15
+K 0 0 900 12 13
+R 0 0 600 4 3
+W 0 0 400 4 17
+R 0 0 243 18 15
+P 0 0 500 2 7
+K 0 0 900 9 9
+W 0 0 400 5 7
+R 0 0 600 16 3
+K 0 0 900 1 10
+P 0 0 500 10 3
+W 0 0 400 17 11
+K 0 0 900 19 12
+R 0 0 600 6 6
+K 0 0 900 1 5
+R 0 0 600 6 14
+P 0 0 500 0 12
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 500 1 16
+~~ Round 4 ~~
+Player Wizard 15 was killed by Pyromancer 26
+Player Rogue 34 was killed by Knight 30
+Player Wizard 37 was killed by Rogue 43
+Angel DamageAngel was spawned at 1 3
+Angel DarkAngel was spawned at 2 5
+Angel Dracula was spawned at 3 2
+Dracula hit Rogue 16
+Angel GoodBoy was spawned at 6 1
+Angel LevelUpAngel was spawned at 7 7
+Angel LifeGiver was spawned at 4 9
+
+~~ DEBUG Results ~~
+P 0 0 500 1 19
+R 0 0 600 9 9
+R 0 0 600 6 16
+K 0 0 900 17 5
+K 0 0 666 0 3
+K 0 0 900 3 16
+K 0 0 900 8 19
+P 0 0 500 11 14
+W 0 0 400 5 3
+P 0 0 500 19 7
+R 0 0 600 6 0
+W 0 0 400 7 5
+P 0 0 500 13 13
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 565 3 2
+P 0 0 500 19 4
+W 0 0 400 4 5
+K 0 0 900 7 9
+P 0 0 500 15 2
+P 0 200 246 18 18
+P 0 0 500 0 13
+P 0 0 500 16 14
+W 0 0 400 16 12
+R 0 200 407 10 3
+P 0 200 287 0 2
+P 0 0 500 12 18
+K 0 0 900 19 17
+W 0 0 400 15 12
+K 0 200 444 18 15
+K 0 0 900 12 14
+R 0 0 600 4 4
+W 0 0 400 4 16
+R 0 0 -114 18 15
+P 0 0 500 2 6
+K 0 0 900 9 10
+W 0 0 -89 6 7
+R 0 0 600 17 3
+K 0 0 900 0 10
+P 0 0 500 9 3
+W 0 0 400 16 11
+K 0 0 900 19 11
+R 0 200 407 6 7
+K 0 0 900 1 4
+R 0 0 600 6 13
+P 0 0 500 0 11
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 500 1 17
+~~ Round 5 ~~
+Angel Spawner was spawned at 0 0
+Angel TheDoomer was spawned at 2 2
+TheDoomer hit Rogue 16
+Player Rogue 16 was killed by an angel
+Angel Dracula was spawned at 15 5
+Angel GoodBoy was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel Dracula was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 500 2 19
+R 0 0 600 10 9
+R 0 0 600 7 16
+K 0 0 900 16 5
+K 0 0 666 0 2
+K 0 0 900 3 15
+K 0 0 900 9 19
+P 0 0 500 10 14
+W 0 0 400 6 3
+P 0 0 500 19 6
+R 0 0 600 6 1
+W 0 0 400 7 4
+P 0 0 500 12 13
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 4
+W 0 0 400 4 4
+K 0 0 900 7 10
+P 0 0 500 15 1
+P 0 200 246 17 18
+P 0 0 500 1 13
+P 0 0 500 16 13
+W 0 0 400 17 12
+R 0 200 407 10 2
+P 0 200 287 0 1
+P 0 0 500 12 17
+K 0 0 900 19 16
+W 0 0 400 15 11
+K 0 200 412 18 15
+K 0 0 900 13 14
+R 0 0 600 4 3
+W 0 0 400 4 15
+R 0 0 -114 18 15
+P 0 0 500 2 5
+K 0 0 900 9 9
+W 0 0 -89 6 7
+R 0 0 600 16 3
+K 0 0 900 1 10
+P 0 0 500 9 4
+W 0 0 400 17 11
+K 0 0 900 19 10
+R 0 200 407 7 7
+K 0 0 900 1 5
+R 0 0 600 6 12
+P 0 0 500 0 10
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 500 1 18
+~~ Round 6 ~~
+Player Pyromancer 49 was killed by Pyromancer 0
+Player Pyromancer 0 was killed by Pyromancer 49
+Player Wizard 24 was killed by Pyromancer 23
+Angel LifeGiver was spawned at 0 0
+Angel GoodBoy was spawned at 2 2
+Angel Dracula was spawned at 15 5
+Dracula hit Knight 3
+Angel GoodBoy was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel Dracula was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 11 9
+R 0 0 600 7 17
+K 0 0 840 15 5
+K 0 0 666 1 2
+K 0 0 900 3 16
+K 0 0 900 10 19
+P 0 0 500 11 14
+W 0 0 400 6 4
+P 0 0 500 19 5
+R 0 0 600 6 0
+W 0 0 400 8 4
+P 0 0 500 12 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 17 4
+W 0 0 400 4 3
+K 0 0 900 7 9
+P 0 0 500 14 1
+P 0 200 246 17 17
+P 0 0 500 2 13
+P 0 200 220 17 13
+W 0 0 -125 17 13
+R 0 200 407 10 1
+P 0 200 287 1 1
+P 0 0 500 13 17
+K 0 0 900 19 17
+W 0 0 400 15 12
+K 0 200 380 18 15
+K 0 0 900 13 13
+R 0 0 600 3 3
+W 0 0 400 4 14
+R 0 0 -114 18 15
+P 0 0 500 2 4
+K 0 0 900 10 9
+W 0 0 -89 6 7
+R 0 0 600 16 2
+K 0 0 900 0 10
+P 0 0 500 10 4
+W 0 0 400 17 12
+K 0 0 900 18 10
+R 0 200 407 7 6
+K 0 0 900 1 4
+R 0 0 600 6 13
+P 0 0 500 0 9
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 7 ~~
+Angel Spawner was spawned at 0 0
+Angel TheDoomer was spawned at 2 4
+Angel Dracula was spawned at 15 5
+Angel SmallAngel was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel XPAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 10 9
+R 0 0 600 6 17
+K 0 0 840 16 5
+K 0 0 666 0 2
+K 0 0 900 3 17
+K 0 0 900 10 18
+P 0 0 500 12 14
+W 0 0 400 7 4
+P 0 0 500 19 6
+R 0 0 600 6 1
+W 0 0 400 8 3
+P 0 0 500 12 11
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 16 4
+W 0 0 400 4 4
+K 0 0 900 7 8
+P 0 0 500 14 2
+P 0 200 246 17 16
+P 0 0 500 2 14
+P 0 200 220 18 13
+W 0 0 -125 17 13
+R 0 200 407 10 2
+P 0 200 287 1 0
+P 0 0 500 13 18
+K 0 0 900 19 18
+W 0 0 400 16 12
+K 0 200 348 18 15
+K 0 0 900 13 14
+R 0 0 100 2 3
+W 0 0 400 4 13
+R 0 0 -114 18 15
+P 0 0 202 2 3
+K 0 0 900 10 10
+W 0 0 -89 6 7
+R 0 0 600 17 2
+K 0 0 900 0 11
+P 0 0 500 9 4
+W 0 0 400 17 11
+K 0 0 900 18 11
+R 0 200 407 6 6
+K 0 0 900 1 3
+R 0 0 600 6 12
+P 0 0 500 0 10
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 8 ~~
+Angel Dracula was spawned at 0 0
+Angel GoodBoy was spawned at 2 6
+Angel LevelUpAngel was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel SmallAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 10 8
+R 0 0 600 7 17
+K 0 0 840 16 6
+K 0 0 666 1 2
+K 0 0 900 3 16
+K 0 0 900 11 18
+P 0 0 500 12 13
+W 0 0 400 7 5
+P 0 0 500 19 5
+R 0 0 600 7 1
+W 0 0 400 9 3
+P 0 0 500 12 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 16 3
+W 0 0 400 5 4
+K 0 0 900 7 7
+P 0 0 500 14 3
+P 0 200 246 17 17
+P 0 0 500 2 13
+P 0 200 220 17 13
+W 0 0 -125 17 13
+R 0 200 407 10 1
+P 0 200 287 2 0
+P 0 0 500 13 19
+K 0 0 900 19 17
+W 0 0 400 15 12
+K 0 200 279 18 14
+K 0 0 900 13 13
+R 0 0 75 1 3
+W 0 0 400 5 13
+R 0 0 -114 18 15
+P 0 0 154 2 3
+K 0 0 900 11 10
+W 0 0 -89 6 7
+R 0 0 600 17 3
+K 0 0 900 0 10
+P 0 0 500 9 5
+W 0 0 400 17 12
+K 0 0 900 19 11
+R 0 200 407 7 6
+K 0 0 900 0 3
+R 0 0 600 5 12
+P 0 0 500 0 11
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 9 ~~
+Player Pyromancer 21 was killed by Knight 28
+Angel Spawner was spawned at 0 7
+Angel DamageAngel was spawned at 2 1
+Angel LevelUpAngel was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel SmallAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 10 7
+R 0 0 600 7 18
+K 0 0 840 16 7
+K 0 0 666 2 2
+K 0 0 900 3 15
+K 0 0 900 11 19
+P 0 0 500 11 13
+W 0 0 400 7 6
+P 0 0 500 18 5
+R 0 0 600 7 0
+W 0 0 400 9 4
+P 0 0 500 11 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 16 2
+W 0 0 400 5 5
+K 0 0 900 7 8
+P 0 0 500 14 4
+P 0 200 -111 18 17
+P 0 0 500 1 13
+P 0 200 220 17 12
+W 0 0 -125 17 13
+R 0 200 407 11 1
+P 0 200 287 3 0
+P 0 0 500 13 18
+K 0 200 300 18 17
+W 0 0 400 16 12
+K 0 200 348 18 15
+K 0 0 900 12 13
+R 0 0 37 1 2
+W 0 0 400 4 13
+R 0 0 -114 18 15
+P 0 0 106 2 3
+K 0 0 900 12 10
+W 0 0 -89 6 7
+R 0 0 600 16 3
+K 0 0 900 0 11
+P 0 0 500 10 5
+W 0 0 400 18 12
+K 0 0 900 19 10
+R 0 200 407 7 7
+K 0 0 900 0 2
+R 0 0 600 5 11
+P 0 0 500 0 12
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 10 ~~
+Angel LifeGiver was spawned at 5 0
+Angel DarkAngel was spawned at 2 9
+Angel Dracula was spawned at 15 5
+Angel DamageAngel was spawned at 19 4
+Angel Dracula was spawned at 9 13
+Angel LevelUpAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 10 8
+R 0 0 600 7 17
+K 0 0 840 15 7
+K 0 0 666 3 2
+K 0 0 900 3 14
+K 0 0 900 10 19
+P 0 0 500 11 14
+W 0 0 400 8 6
+P 0 0 500 18 6
+R 0 0 600 6 0
+W 0 0 400 8 4
+P 0 0 500 11 13
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 17 2
+W 0 0 400 6 5
+K 0 0 900 7 9
+P 0 0 500 13 4
+P 0 200 -111 18 17
+P 0 0 500 1 14
+P 0 200 220 17 11
+W 0 0 -125 17 13
+R 0 200 407 11 2
+P 0 200 287 3 1
+P 0 0 500 13 17
+K 0 200 300 19 17
+W 0 0 375 17 12
+K 0 200 279 17 15
+K 0 0 900 12 12
+R 0 0 55 2 2
+W 0 0 400 4 14
+R 0 0 -114 18 15
+P 0 0 58 2 3
+K 0 0 900 11 10
+W 0 0 -89 6 7
+R 0 0 600 16 2
+K 0 0 900 0 10
+P 0 0 500 11 5
+W 0 0 375 17 12
+K 0 0 900 19 11
+R 0 200 407 6 7
+K 0 0 900 0 1
+R 0 0 600 6 11
+P 0 0 500 0 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 11 ~~
+Angel Spawner was spawned at 0 4
+Angel GoodBoy was spawned at 2 5
+Angel LevelUpAngel was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel GoodBoy was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 10 9
+R 0 0 600 6 17
+K 0 0 840 16 7
+K 0 0 666 3 3
+K 0 0 900 3 15
+K 0 0 900 9 19
+P 0 0 500 11 15
+W 0 0 400 8 5
+P 0 0 500 19 6
+R 0 0 600 6 1
+W 0 0 400 9 4
+P 0 0 500 11 14
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 2
+W 0 0 400 6 4
+K 0 0 900 7 10
+P 0 0 500 14 4
+P 0 200 -111 18 17
+P 0 0 500 2 14
+P 0 200 220 16 11
+W 0 0 -125 17 13
+R 0 200 407 10 2
+P 0 200 287 3 2
+P 0 0 500 12 17
+K 0 200 300 19 16
+W 0 0 375 18 12
+K 0 200 348 17 16
+K 0 0 900 12 11
+R 0 0 82 2 1
+W 0 0 400 3 14
+R 0 0 -114 18 15
+P 0 0 77 1 3
+K 0 0 900 10 10
+W 0 0 -89 6 7
+R 0 0 600 17 2
+K 0 0 900 0 11
+P 0 0 500 10 5
+W 0 0 375 16 12
+K 0 0 900 18 11
+R 0 200 407 6 6
+K 0 0 900 0 2
+R 0 0 600 7 11
+P 0 0 500 0 14
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 12 ~~
+Player Rogue 32 was killed by Pyromancer 26
+Pyromancer 26 reached level 1
+Pyromancer 26 reached level 2
+Pyromancer 26 reached level 3
+Pyromancer 26 reached level 4
+Angel SmallAngel was spawned at 2 0
+Angel DamageAngel was spawned at 2 7
+Angel Spawner was spawned at 15 5
+Angel Dracula was spawned at 19 4
+Angel LifeGiver was spawned at 9 13
+Angel SmallAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 9 9
+R 0 0 600 5 17
+K 0 0 840 16 6
+K 0 0 666 3 2
+K 0 0 900 3 14
+K 0 0 900 9 18
+P 0 0 500 11 14
+W 0 0 400 8 4
+P 0 0 500 19 7
+R 0 0 600 6 0
+W 0 0 400 9 3
+P 0 0 500 11 13
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 1
+W 0 0 400 5 4
+K 0 0 900 8 10
+P 0 0 500 13 4
+P 0 200 -111 18 17
+P 0 0 500 2 15
+P 0 200 220 17 11
+W 0 0 -125 17 13
+R 0 200 407 10 1
+P 4 400 700 3 1
+P 0 0 500 11 17
+K 0 200 300 19 17
+W 0 0 375 18 13
+K 0 200 279 17 15
+K 0 0 900 13 11
+R 0 0 -377 3 1
+W 0 0 400 3 13
+R 0 0 -114 18 15
+P 0 0 102 1 2
+K 0 0 900 10 9
+W 0 0 -89 6 7
+R 0 0 600 17 1
+K 0 0 900 0 10
+P 0 0 500 10 4
+W 0 0 375 15 12
+K 0 0 900 19 11
+R 0 200 407 7 6
+K 0 0 900 0 1
+R 0 0 600 6 11
+P 0 0 500 0 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 13 ~~
+Player Pyromancer 23 was killed by Knight 42
+Angel LifeGiver was spawned at 0 7
+Angel GoodBoy was spawned at 2 11
+Angel LifeGiver was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel LifeGiver was spawned at 9 13
+Angel SmallAngel was spawned at 15 6
+SmallAngel helped Knight 3
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 9 8
+R 0 0 600 5 18
+K 0 0 850 15 6
+K 0 0 666 2 2
+K 0 0 900 3 15
+K 0 0 900 10 18
+P 0 0 500 11 13
+W 0 0 400 7 4
+P 0 0 500 19 6
+R 0 0 600 5 0
+W 0 0 400 10 3
+P 0 0 500 11 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 19 1
+W 0 0 400 6 4
+K 0 0 900 7 10
+P 0 0 500 13 3
+P 0 200 -111 18 17
+P 0 0 500 2 16
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 407 11 1
+P 4 400 672 3 1
+P 0 0 500 10 17
+K 0 200 300 19 16
+W 0 0 375 19 13
+K 0 200 348 16 15
+K 0 0 900 13 10
+R 0 0 -377 3 1
+W 0 0 400 3 12
+R 0 0 -114 18 15
+P 0 0 135 1 3
+K 0 0 900 11 9
+W 0 0 -89 6 7
+R 0 0 600 17 0
+K 0 0 900 1 10
+P 0 0 500 9 4
+W 0 0 375 14 12
+K 0 200 300 18 11
+R 0 200 407 7 5
+K 0 0 900 0 2
+R 0 0 600 5 11
+P 0 0 500 1 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 14 ~~
+Angel SmallAngel was spawned at 0 9
+Angel SmallAngel was spawned at 2 13
+Angel SmallAngel was spawned at 15 5
+Angel SmallAngel was spawned at 19 4
+Angel SmallAngel was spawned at 9 13
+Angel SmallAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 600 9 9
+R 0 0 600 5 19
+K 0 0 850 16 6
+K 0 0 666 2 1
+K 0 0 900 3 14
+K 0 0 900 11 18
+P 0 0 500 12 13
+W 0 0 400 6 4
+P 0 0 500 19 5
+R 0 0 600 6 0
+W 0 0 400 9 3
+P 0 0 500 10 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 19 2
+W 0 0 100 7 4
+K 0 0 900 8 10
+P 0 0 500 13 2
+P 0 200 -111 18 17
+P 0 0 500 1 16
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 407 12 1
+P 4 400 644 3 1
+P 0 0 500 10 18
+K 0 200 300 18 16
+W 0 0 375 19 14
+K 0 200 279 15 15
+K 0 0 900 13 9
+R 0 0 -377 3 1
+W 0 0 400 2 12
+R 0 0 -114 18 15
+P 0 0 102 2 3
+K 0 0 900 11 10
+W 0 0 -89 6 7
+R 0 0 600 17 1
+K 0 0 900 1 11
+P 0 0 500 10 4
+W 0 0 375 15 12
+K 0 200 300 18 10
+R 0 200 264 7 4
+K 0 0 900 0 3
+R 0 0 600 5 12
+P 0 0 500 1 14
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 15 ~~
+Player Knight 4 was killed by Pyromancer 26
+Player Pyromancer 35 was killed by Knight 44
+Angel TheDoomer was spawned at 11 0
+Angel TheDoomer was spawned at 1 1
+Angel TheDoomer was spawned at 2 2
+Angel TheDoomer was spawned at 3 3
+Angel TheDoomer was spawned at 4 4
+Angel TheDoomer was spawned at 5 5
+Angel TheDoomer was spawned at 6 6
+Angel TheDoomer was spawned at 7 7
+Angel TheDoomer was spawned at 8 8
+Angel TheDoomer was spawned at 9 9
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 290 8 9
+R 0 0 600 4 19
+K 0 0 850 17 6
+K 0 0 -506 3 1
+K 0 0 900 3 15
+K 0 0 900 10 18
+P 0 0 500 12 12
+W 0 0 400 5 4
+P 0 0 500 19 6
+R 0 0 600 7 0
+W 0 0 400 8 3
+P 0 0 500 11 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 19 1
+W 0 0 50 7 4
+K 0 0 688 8 9
+P 0 0 500 13 3
+P 0 200 -111 18 17
+P 0 0 500 2 16
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 407 13 1
+P 4 440 306 3 1
+P 0 0 500 10 17
+K 0 200 300 18 17
+W 0 0 375 18 14
+K 0 200 348 14 15
+K 0 0 900 13 10
+R 0 0 -377 3 1
+W 0 0 400 3 12
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 12 10
+W 0 0 -89 6 7
+R 0 0 600 17 2
+K 0 0 900 1 10
+P 0 0 500 10 5
+W 0 0 375 15 11
+K 0 200 300 19 10
+R 0 200 264 7 3
+K 0 200 550 1 3
+R 0 0 600 5 11
+P 0 0 500 0 14
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 16 ~~
+Player Rogue 1 was killed by Knight 19
+Angel TheDoomer was spawned at 0 9
+Angel TheDoomer was spawned at 1 8
+Angel TheDoomer was spawned at 2 7
+Angel TheDoomer was spawned at 3 6
+Angel TheDoomer was spawned at 4 5
+Angel TheDoomer was spawned at 5 4
+Angel TheDoomer was spawned at 6 3
+Angel TheDoomer was spawned at 7 2
+TheDoomer hit Rogue 43
+Player Rogue 43 was killed by an angel
+Angel TheDoomer was spawned at 8 1
+Angel TheDoomer was spawned at 9 0
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 3 19
+K 0 0 850 17 5
+K 0 0 -506 3 1
+K 0 0 900 3 16
+K 0 0 900 10 19
+P 0 0 500 13 12
+W 0 0 400 6 4
+P 0 0 500 19 7
+R 0 0 600 7 1
+W 0 0 400 8 4
+P 0 0 500 12 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 19 0
+W 0 0 0 7 4
+K 0 200 444 8 9
+P 0 0 500 13 2
+P 0 200 -111 18 17
+P 0 0 500 2 15
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 407 12 1
+P 4 440 306 3 1
+P 0 0 500 9 17
+K 0 200 300 18 18
+W 0 0 375 17 14
+K 0 200 279 14 14
+K 0 0 900 13 9
+R 0 0 -377 3 1
+W 0 0 400 4 12
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 11 10
+W 0 0 -89 6 7
+R 0 0 600 18 2
+K 0 0 900 1 9
+P 0 0 500 10 4
+W 0 0 375 15 10
+K 0 200 300 19 11
+R 0 200 0 7 2
+K 0 200 515 2 3
+R 0 0 600 5 12
+P 0 0 500 0 15
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 17 ~~
+Angel LevelUpAngel was spawned at 0 9
+LevelUpAngel helped Knight 39
+Knight 39 reached level 1
+Angel LevelUpAngel was spawned at 1 8
+Angel LevelUpAngel was spawned at 2 7
+Angel LevelUpAngel was spawned at 3 6
+Angel LevelUpAngel was spawned at 4 5
+Angel LevelUpAngel was spawned at 5 4
+LevelUpAngel helped Wizard 8
+Wizard 8 reached level 1
+Angel LevelUpAngel was spawned at 6 3
+Angel LevelUpAngel was spawned at 7 2
+Angel LevelUpAngel was spawned at 8 1
+Angel LevelUpAngel was spawned at 9 0
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 2 19
+K 0 0 850 17 4
+K 0 0 -506 3 1
+K 0 0 900 4 16
+K 0 0 900 9 19
+P 0 0 500 12 12
+W 1 250 430 5 4
+P 0 0 500 19 6
+R 0 0 600 7 0
+W 0 0 400 7 4
+P 0 0 500 12 11
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 0
+W 0 0 0 7 4
+K 0 200 412 8 9
+P 0 0 500 12 2
+P 0 200 -111 18 17
+P 0 0 500 2 16
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 407 11 1
+P 4 440 306 3 0
+P 0 0 500 9 16
+K 0 200 300 18 17
+W 0 0 375 17 13
+K 0 200 348 14 13
+K 0 0 900 13 10
+R 0 0 -377 3 1
+W 0 0 400 4 11
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 10 10
+W 0 0 -89 6 7
+R 0 0 600 18 1
+K 1 250 980 0 9
+P 0 0 500 10 5
+W 0 0 375 14 10
+K 0 200 300 18 11
+R 0 200 0 7 2
+K 0 200 480 2 2
+R 0 0 600 5 11
+P 0 0 500 1 15
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 18 ~~
+Angel Spawner was spawned at 0 3
+Angel GoodBoy was spawned at 2 18
+Angel LevelUpAngel was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel GoodBoy was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 1 19
+K 0 0 850 18 4
+K 0 0 -506 3 1
+K 0 0 900 3 16
+K 0 0 900 10 19
+P 0 0 500 11 12
+W 1 250 430 5 5
+P 0 0 500 18 6
+R 0 0 600 8 0
+W 0 0 400 7 5
+P 0 0 500 11 11
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 19 0
+W 0 0 0 7 4
+K 0 200 380 8 9
+P 0 0 500 11 2
+P 0 200 -111 18 17
+P 0 0 500 2 17
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 407 11 0
+P 4 440 306 4 0
+P 0 0 500 9 15
+K 0 200 300 18 16
+W 0 0 375 17 14
+K 0 200 279 14 12
+K 0 0 900 12 10
+R 0 0 -377 3 1
+W 0 0 400 5 11
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 9 10
+W 0 0 -89 6 7
+R 0 0 600 19 1
+K 1 250 980 0 10
+P 0 0 500 9 5
+W 0 0 375 13 10
+K 0 200 300 19 11
+R 0 200 0 7 2
+K 0 200 480 2 1
+R 0 0 600 4 11
+P 0 0 500 1 16
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 19 ~~
+Player Rogue 25 was killed by Pyromancer 20
+Angel SmallAngel was spawned at 6 0
+Angel SmallAngel was spawned at 2 16
+Angel SmallAngel was spawned at 15 5
+Angel SmallAngel was spawned at 19 4
+Angel SmallAngel was spawned at 9 13
+Angel SmallAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 1 18
+K 0 0 850 17 4
+K 0 0 -506 3 1
+K 0 0 900 3 15
+K 0 0 900 9 19
+P 0 0 500 11 13
+W 1 250 430 5 6
+P 0 0 500 19 6
+R 0 0 600 8 1
+W 0 0 400 8 5
+P 0 0 190 12 11
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 19 1
+W 0 0 0 7 4
+K 0 200 348 8 9
+P 0 200 202 11 1
+P 0 200 -111 18 17
+P 0 0 500 2 18
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 4 -1
+P 0 0 500 9 14
+K 0 200 300 18 15
+W 0 0 375 17 13
+K 0 200 348 15 12
+K 0 0 148 12 11
+R 0 0 -377 3 1
+W 0 0 400 5 12
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 9 9
+W 0 0 -89 6 7
+R 0 0 600 19 2
+K 1 250 980 1 10
+P 0 0 500 9 4
+W 0 0 375 12 10
+K 0 200 300 19 10
+R 0 200 0 7 2
+K 0 200 480 3 1
+R 0 0 600 4 12
+P 0 0 500 1 15
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 20 ~~
+Angel LifeGiver was spawned at 8 0
+LifeGiver helped Rogue 10
+Angel DarkAngel was spawned at 2 4
+Angel Dracula was spawned at 15 5
+Angel DamageAngel was spawned at 19 4
+Angel Dracula was spawned at 9 13
+Dracula hit Pyromancer 27
+Angel LevelUpAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 0 18
+K 0 0 850 16 4
+K 0 0 -506 3 1
+K 0 0 900 4 15
+K 0 0 900 8 19
+P 0 0 500 11 12
+W 1 250 430 6 6
+P 0 0 500 19 5
+R 0 0 600 8 0
+W 0 0 400 8 4
+P 0 0 190 12 11
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 1
+W 0 0 0 7 4
+K 0 200 279 9 9
+P 0 200 154 11 1
+P 0 200 -111 18 17
+P 0 0 500 1 18
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 3 -1
+P 0 0 460 9 13
+K 0 200 300 18 14
+W 0 0 375 17 12
+K 0 200 279 16 12
+K 0 0 90 12 10
+R 0 0 -377 3 1
+W 0 0 400 5 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 9 8
+W 0 0 -89 6 7
+R 0 0 600 19 1
+K 1 250 980 1 9
+P 0 0 500 9 3
+W 0 0 375 11 10
+K 0 200 300 18 10
+R 0 200 0 7 2
+K 0 200 480 3 0
+R 0 0 600 3 12
+P 0 0 500 1 14
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 21 ~~
+Player Wizard 41 was killed by Pyromancer 7
+Angel DamageAngel was spawned at 1 1
+Angel DarkAngel was spawned at 2 9
+Angel Dracula was spawned at 3 1
+Angel GoodBoy was spawned at 5 1
+Angel LevelUpAngel was spawned at 5 5
+Angel LifeGiver was spawned at 7 2
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 0 19
+K 0 0 850 16 5
+K 0 0 -506 3 1
+K 0 0 900 4 14
+K 0 0 900 8 18
+P 0 200 220 11 11
+W 1 250 430 6 7
+P 0 0 500 19 6
+R 0 0 600 9 0
+W 0 0 400 8 5
+P 0 0 190 12 12
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 17 1
+W 0 0 0 7 4
+K 0 200 348 8 9
+P 0 200 106 11 1
+P 0 200 -111 18 17
+P 0 0 500 1 17
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 2 -1
+P 0 0 460 8 13
+K 0 200 300 19 14
+W 0 0 375 17 11
+K 0 200 348 16 13
+K 0 0 17 12 11
+R 0 0 -377 3 1
+W 0 0 400 6 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 9 7
+W 0 0 -89 6 7
+R 0 0 600 19 0
+K 1 250 980 1 10
+P 0 0 500 9 4
+W 0 0 -150 11 11
+K 0 200 300 17 10
+R 0 200 0 7 2
+K 0 200 480 4 0
+R 0 0 600 2 12
+P 0 0 500 2 14
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 22 ~~
+Angel Spawner was spawned at 0 12
+Angel GoodBoy was spawned at 2 7
+Angel LevelUpAngel was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel GoodBoy was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 1 19
+K 0 0 850 16 6
+K 0 0 -506 3 1
+K 0 0 900 5 14
+K 0 0 900 8 17
+P 0 200 220 10 11
+W 1 250 430 7 7
+P 0 0 500 19 5
+R 0 0 600 10 0
+W 0 0 400 8 4
+P 0 0 190 12 13
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 16 1
+W 0 0 0 7 4
+K 0 200 279 8 8
+P 0 200 58 11 1
+P 0 200 -111 18 17
+P 0 0 500 0 17
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 2 0
+P 0 0 180 7 13
+K 0 200 300 18 14
+W 0 0 375 16 11
+K 0 200 279 16 14
+K 0 0 21 12 10
+R 0 0 -377 3 1
+W 0 0 26 7 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 10 7
+W 0 0 -89 6 7
+R 0 0 600 18 0
+K 1 250 980 1 11
+P 0 0 500 10 4
+W 0 0 -150 11 11
+K 0 200 300 18 10
+R 0 200 0 7 2
+K 0 200 480 4 1
+R 0 0 600 3 12
+P 0 0 500 2 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 23 ~~
+Player Wizard 8 was killed by Knight 19
+Knight 19 reached level 1
+Knight 19 reached level 2
+Knight 19 reached level 3
+Knight 19 reached level 4
+Angel Spawner was spawned at 6 0
+Angel GoodBoy was spawned at 2 7
+Angel GoodBoy was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel Dracula was spawned at 9 13
+Angel DamageAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 2 19
+K 0 0 850 16 5
+K 0 0 -506 3 1
+K 0 0 900 5 13
+K 0 0 900 8 16
+P 0 200 220 9 11
+W 1 250 -15 8 7
+P 0 0 500 19 6
+R 0 0 600 11 0
+W 0 0 400 7 4
+P 0 0 190 12 14
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 16 2
+W 0 0 0 7 4
+K 4 440 1220 8 7
+P 0 200 77 11 2
+P 0 200 -111 18 17
+P 0 0 500 1 17
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 2 -1
+P 0 0 180 8 13
+K 0 200 300 19 14
+W 0 0 375 16 10
+K 0 200 348 15 14
+K 0 0 26 12 9
+R 0 0 -377 3 1
+W 0 0 -11 7 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 9 7
+W 0 0 -89 6 7
+R 0 0 600 18 1
+K 1 250 980 1 12
+P 0 0 500 9 4
+W 0 0 -150 11 11
+K 0 200 300 18 9
+R 0 200 0 7 2
+K 0 200 480 5 1
+R 0 0 200 3 13
+P 0 0 14 3 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 24 ~~
+Angel LifeGiver was spawned at 3 0
+Angel GoodBoy was spawned at 2 9
+Angel LifeGiver was spawned at 15 5
+LifeGiver helped Knight 3
+Angel XPAngel was spawned at 19 4
+Angel LifeGiver was spawned at 9 13
+Angel SmallAngel was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 2 18
+K 0 0 900 15 5
+K 0 0 -506 3 1
+K 0 0 900 6 13
+K 0 0 900 8 15
+P 0 200 220 8 11
+W 1 250 -15 8 7
+P 0 0 500 19 5
+R 0 0 600 12 0
+W 0 0 400 7 5
+P 0 0 190 12 15
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 17 2
+W 0 0 0 7 4
+K 4 440 1220 8 6
+P 0 200 102 11 1
+P 0 200 -111 18 17
+P 0 0 500 2 17
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 3 -1
+P 0 0 180 8 14
+K 0 200 300 19 15
+W 0 0 375 16 9
+K 0 200 279 16 14
+K 0 0 32 12 10
+R 0 0 -377 3 1
+W 0 0 -11 7 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 10 7
+W 0 0 -89 6 7
+R 0 0 600 18 0
+K 1 250 980 0 12
+P 0 0 500 9 3
+W 0 0 -150 11 11
+K 0 200 300 19 9
+R 0 200 0 7 2
+K 0 200 480 5 2
+R 0 0 160 3 12
+P 0 0 -41 3 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 25 ~~
+Player Wizard 11 was killed by Knight 19
+Knight 19 reached level 5
+Angel Spawner was spawned at 0 7
+Angel GoodBoy was spawned at 2 1
+Angel LevelUpAngel was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+XPAngel helped Pyromancer 9
+Angel DamageAngel was spawned at 9 13
+Angel GoodBoy was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 1 18
+K 0 0 900 15 4
+K 0 0 -506 3 1
+K 0 0 900 6 14
+K 0 0 900 8 16
+P 0 200 220 8 10
+W 1 250 -15 8 7
+P 0 50 500 19 4
+R 0 0 600 13 0
+W 0 0 -477 8 5
+P 0 0 190 12 14
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 17 3
+W 0 0 0 7 4
+K 5 480 1300 8 5
+P 0 200 135 10 1
+P 0 200 -111 18 17
+P 0 0 500 3 17
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 3 0
+P 0 0 180 9 14
+K 0 200 300 19 14
+W 0 0 375 15 9
+K 0 200 348 16 13
+K 0 0 40 12 11
+R 0 0 -377 3 1
+W 0 0 -11 7 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 9 7
+W 0 0 -89 6 7
+R 0 0 600 19 0
+K 1 250 980 1 12
+P 0 0 500 10 3
+W 0 0 -150 11 11
+K 0 200 300 19 10
+R 0 200 0 7 2
+K 0 200 480 5 3
+R 0 0 120 2 12
+P 0 0 -41 3 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 26 ~~
+Angel TheDoomer was spawned at 0 9
+Angel TheDoomer was spawned at 1 8
+Angel TheDoomer was spawned at 2 7
+Angel TheDoomer was spawned at 3 6
+Angel TheDoomer was spawned at 4 5
+Angel TheDoomer was spawned at 5 4
+Angel TheDoomer was spawned at 6 3
+Angel TheDoomer was spawned at 7 2
+Angel TheDoomer was spawned at 8 1
+Angel TheDoomer was spawned at 9 0
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 1 19
+K 0 0 900 14 4
+K 0 0 -506 3 1
+K 0 0 900 6 15
+K 0 0 900 9 16
+P 0 200 220 8 11
+W 1 250 -15 8 7
+P 0 50 500 18 4
+R 0 0 600 12 0
+W 0 0 -477 8 5
+P 0 0 190 12 15
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 3
+W 0 0 0 7 4
+K 5 480 1300 8 4
+P 0 200 102 11 1
+P 0 200 -111 18 17
+P 0 0 500 2 17
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 2 0
+P 0 0 180 9 15
+K 0 200 300 18 14
+W 0 0 375 15 10
+K 0 200 279 17 13
+K 0 0 50 11 11
+R 0 0 -377 3 1
+W 0 0 -11 7 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 9 8
+W 0 0 -89 6 7
+R 0 0 600 18 0
+K 1 250 980 1 13
+P 0 0 500 10 4
+W 0 0 -150 11 11
+K 0 200 300 18 10
+R 0 200 0 7 2
+K 0 200 480 5 2
+R 0 0 120 3 12
+P 0 0 -41 3 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 27 ~~
+Player Pyromancer 40 was killed by Knight 19
+Player Knight 28 was killed by Knight 30
+Knight 30 reached level 1
+Knight 30 reached level 2
+Knight 30 reached level 3
+Knight 30 reached level 4
+Angel Spawner was spawned at 0 15
+Angel GoodBoy was spawned at 2 0
+Angel LevelUpAngel was spawned at 15 5
+Angel XPAngel was spawned at 19 4
+Angel DamageAngel was spawned at 9 13
+Angel GoodBoy was spawned at 15 6
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 2 19
+K 0 0 900 14 3
+K 0 0 -506 3 1
+K 0 0 900 6 14
+K 0 0 900 8 16
+P 0 200 220 7 11
+W 1 250 -15 8 7
+P 0 50 500 18 3
+R 0 0 600 12 1
+W 0 0 -477 8 5
+P 0 0 190 12 14
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 2
+W 0 0 0 7 4
+K 5 480 700 9 4
+P 0 200 135 11 2
+P 0 200 -111 18 17
+P 0 0 500 2 18
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 3 0
+P 0 0 180 10 15
+K 0 200 -413 18 13
+W 0 0 375 15 11
+K 4 400 1220 18 13
+K 0 0 62 11 10
+R 0 0 -377 3 1
+W 0 0 -11 7 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 10 8
+W 0 0 -89 6 7
+R 0 0 600 17 0
+K 1 250 980 2 13
+P 0 0 -545 9 4
+W 0 0 -150 11 11
+K 0 200 300 18 9
+R 0 200 0 7 2
+K 0 200 480 6 2
+R 0 0 120 3 11
+P 0 0 -41 3 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Round 28 ~~
+Angel LevelUpAngel was spawned at 0 9
+Angel LevelUpAngel was spawned at 1 8
+Angel LevelUpAngel was spawned at 2 7
+Angel LevelUpAngel was spawned at 3 6
+Angel LevelUpAngel was spawned at 4 5
+Angel LevelUpAngel was spawned at 5 4
+Angel LevelUpAngel was spawned at 6 3
+Angel LevelUpAngel was spawned at 7 2
+Angel LevelUpAngel was spawned at 8 1
+Angel LevelUpAngel was spawned at 9 0
+
+~~ DEBUG Results ~~
+P 0 0 -63 1 19
+R 0 0 -20 8 9
+R 0 0 600 3 19
+K 0 0 900 13 3
+K 0 0 -506 3 1
+K 0 0 900 5 14
+K 0 0 900 8 17
+P 0 200 220 8 11
+W 1 250 -15 8 7
+P 0 50 500 18 2
+R 0 0 600 13 1
+W 0 0 -477 8 5
+P 0 0 190 12 13
+K 0 0 -60 14 5
+W 0 0 -89 10 6
+W 0 0 -411 0 2
+R 0 0 0 2 2
+P 0 0 500 18 3
+W 0 0 0 7 4
+K 5 480 512 9 5
+P 0 200 102 12 2
+P 0 200 -111 18 17
+P 0 0 500 1 18
+P 0 200 -90 18 11
+W 0 0 -125 17 13
+R 0 200 -93 11 1
+P 4 440 306 3 1
+P 0 0 180 10 14
+K 0 200 -413 18 13
+W 0 0 375 16 11
+K 4 400 1220 18 13
+K 0 0 77 12 10
+R 0 0 -377 3 1
+W 0 0 -11 7 13
+R 0 0 -114 18 15
+P 0 0 -175 1 3
+K 0 0 900 10 7
+W 0 0 -89 6 7
+R 0 0 600 18 0
+K 1 250 980 3 13
+P 0 0 -545 9 4
+W 0 0 -150 11 11
+K 0 200 300 19 9
+R 0 200 0 7 2
+K 0 200 480 6 1
+R 0 0 120 2 11
+P 0 0 -41 3 13
+W 0 0 -125 17 18
+K 0 0 -60 14 5
+P 0 0 -63 1 19
+~~ Results ~~
+P dead
+R dead
+R 0 0 600 3 19
+K 0 0 900 13 3
+K dead
+K 0 0 900 5 14
+K 0 0 900 8 17
+P 0 200 220 8 11
+W dead
+P 0 50 500 18 2
+R 0 0 600 13 1
+W dead
+P 0 0 190 12 13
+K dead
+W dead
+W dead
+R dead
+P 0 0 500 18 3
+W dead
+K 5 480 512 9 5
+P 0 200 102 12 2
+P dead
+P 0 0 500 1 18
+P dead
+W dead
+R dead
+P 4 440 306 3 1
+P 0 0 180 10 14
+K dead
+W 0 0 375 16 11
+K 4 400 1220 18 13
+K 0 0 77 12 10
+R dead
+W dead
+R dead
+P dead
+K 0 0 900 10 7
+W dead
+R 0 0 600 18 0
+K 1 250 980 3 13
+P dead
+W dead
+K 0 200 300 19 9
+R dead
+K 0 200 480 6 1
+R 0 0 120 2 11
+P dead
+W dead
+K dead
+P dead

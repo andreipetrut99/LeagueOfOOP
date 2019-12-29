@@ -100,8 +100,7 @@ public class Knight extends Hero {
         if (getMaxHp()/3 < getHp() && getHp() < getMaxHp()/2) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        }
-        if (getHp() < getMaxHp() / 3) {
+        } else if (getHp() < getMaxHp() / 3) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
             System.out.println("sad");

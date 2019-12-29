@@ -118,8 +118,7 @@ public class Pyromancer extends Hero {
         if (getMaxHp()/4 < getHp() && getHp() < getMaxHp()/3) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        }
-        if (getHp() < getMaxHp() / 4) {
+        } else if (getHp() < getMaxHp() / 4) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
         }

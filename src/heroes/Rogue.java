@@ -112,11 +112,11 @@ public class Rogue extends Hero {
          float paralysisDamage = PARALYSIS + (PARALYSIS_PER_LEVEL * getLevel());
          if (attacked) {
             if (((backstabHits - 1) == 0) && (landType == 'W')) {
-                backstabDamage = Math.round(paralysisDamage * LAND_MODIFIER);
+                backstabDamage = Math.round(backstabDamage * CRITICAL_HIT);
             }
          } else {
              if (backstabHits == INITIAL_HITS && landType == 'W') {
-                 backstabDamage = Math.round(paralysisDamage * LAND_MODIFIER);
+                 backstabDamage = Math.round(backstabDamage * CRITICAL_HIT);
              }
          }
         if (landType == 'W') {
@@ -150,8 +150,7 @@ public class Rogue extends Hero {
         if (getMaxHp()/7 < getHp() && getHp() < getMaxHp()/5) {
             Context context = new Context(new OffensiveStrategies());
             context.executeStrategy(this);
-        }
-        if (getHp() < getMaxHp() / 7) {
+        } else if (getHp() < getMaxHp() / 7) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
         }

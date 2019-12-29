@@ -27,7 +27,7 @@ public class SmallAngel extends Angel {
     @Override
     public void visit(Rogue hero) {
         hero.changeModifiers(0.05f);
-        hero.setInstantDamage(20);
+        hero.setInstantDamage(-20);
         observer.notifyAngelHelp(this, hero);
     }
 
