@@ -12,26 +12,26 @@ public class XPAngel extends Angel {
 
     @Override
     public void visit(Knight hero) {
-        hero.addXp(45);
         observer.notifyAngelHelp(this, hero);
+        hero.addXp(45);
     }
 
     @Override
     public void visit(Pyromancer hero) {
-        hero.addXp(50);
         observer.notifyAngelHelp(this, hero);
+        hero.addXp(50);
     }
 
     @Override
     public void visit(Rogue hero) {
-        hero.addXp(40);
         observer.notifyAngelHelp(this, hero);
+        hero.addXp(40);
     }
 
     @Override
     public void visit(Wizard hero) {
-        hero.addXp(60);
         observer.notifyAngelHelp(this, hero);
+        hero.addXp(60);
     }
 
     @Override

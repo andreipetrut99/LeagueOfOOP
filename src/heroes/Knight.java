@@ -4,6 +4,7 @@ import angels.Angel;
 import strategies.Context;
 import strategies.DeffenseStrategies;
 import strategies.OffensiveStrategies;
+import strategies.Strategy;
 
 import static commons.Constants.EXECUTE_DAMAGE;
 import static commons.Constants.EXECUTE_DAMAGE_PER_LEVEL;
@@ -103,7 +104,12 @@ public class Knight extends Hero {
         if (getHp() < getMaxHp() / 3) {
             Context context = new Context(new DeffenseStrategies());
             context.executeStrategy(this);
+            System.out.println("sad");
         }
+    }
+
+    public void acceptStrategy(Strategy strategy) {
+        strategy.applyStrategy(this);
     }
 
     /**
@@ -128,8 +134,8 @@ public class Knight extends Hero {
 
 
         if (landType == 'L') {
-            executeDamage = executeDamage * LAND_MODIFIER;
-            slamDamage = slamDamage * LAND_MODIFIER;
+            executeDamage = Math.round(executeDamage * LAND_MODIFIER);
+            slamDamage = Math.round(slamDamage * LAND_MODIFIER);
         }
 
         if (enemy instanceof Pyromancer) {

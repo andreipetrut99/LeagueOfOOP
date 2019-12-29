@@ -2,6 +2,7 @@ package heroes;
 
 import admin.TheGreatWizard;
 import angels.Angel;
+import strategies.Strategy;
 
 import static commons.Constants.*;
 
@@ -213,4 +214,5 @@ public abstract class Hero {
     public abstract void changeModifiers(float percent);
     public abstract void applyStrategy();
     public abstract void acceptAngel(Angel angel);
+    public abstract void acceptStrategy(Strategy strategy);
 }

@@ -4,6 +4,7 @@ import angels.Angel;
 import strategies.Context;
 import strategies.DeffenseStrategies;
 import strategies.OffensiveStrategies;
+import strategies.Strategy;
 
 import static commons.RogueModifiers.BACKSTAB;
 import static commons.RogueModifiers.BACKSTAB_PER_LEVEL;
@@ -64,7 +65,7 @@ public class Rogue extends Hero {
         attacked = true;
 
         if (backstabHits == INITIAL_HITS && landType == 'W') {
-            backstabDamage = backstabDamage * CRITICAL_HIT;
+            backstabDamage = Math.round(backstabDamage * CRITICAL_HIT);
             backstabHits = 0;
         } else if (backstabHits == INITIAL_HITS) {
             backstabHits = 0;
@@ -73,8 +74,8 @@ public class Rogue extends Hero {
 
         if (landType == 'W') {
             paralysisRounds = PARALYSIS_MAX_ROUNDS;
-            paralysisDamage = paralysisDamage * LAND_MODIFIER;
-            backstabDamage = backstabDamage * LAND_MODIFIER;
+            paralysisDamage = Math.round(paralysisDamage * LAND_MODIFIER);
+            backstabDamage = Math.round(backstabDamage * LAND_MODIFIER);
         } else {
             paralysisRounds = PARALYSIS_MIN_ROUNDS;
         }
@@ -111,16 +112,16 @@ public class Rogue extends Hero {
          float paralysisDamage = PARALYSIS + (PARALYSIS_PER_LEVEL * getLevel());
          if (attacked) {
             if (((backstabHits - 1) == 0) && (landType == 'W')) {
-                backstabDamage = backstabDamage * CRITICAL_HIT;
+                backstabDamage = Math.round(paralysisDamage * LAND_MODIFIER);
             }
          } else {
              if (backstabHits == INITIAL_HITS && landType == 'W') {
-                 backstabDamage = backstabDamage * CRITICAL_HIT;
+                 backstabDamage = Math.round(paralysisDamage * LAND_MODIFIER);
              }
          }
         if (landType == 'W') {
-            backstabDamage = backstabDamage * LAND_MODIFIER;
-            paralysisDamage = paralysisDamage * LAND_MODIFIER;
+            backstabDamage = Math.round(backstabDamage * LAND_MODIFIER);
+            paralysisDamage = Math.round(paralysisDamage * LAND_MODIFIER);
         }
         return Math.round(backstabDamage) + Math.round(paralysisDamage);
     }
@@ -139,6 +140,9 @@ public class Rogue extends Hero {
     @Override
     public void acceptAngel(Angel angel) {
         angel.visit(this);
+    }
+    public void acceptStrategy(Strategy strategy) {
+        strategy.applyStrategy(this);
     }
 
     @Override

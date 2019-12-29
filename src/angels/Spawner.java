@@ -14,7 +14,9 @@ public class Spawner extends Angel {
     public void visit(Knight hero) {
         if (hero.getHp() <= 0) {
             hero.setHp(200);
+            //hero.addXp(-hero.getXp());
             observer.notifyAngelHelp(this, hero);
+            observer.notifyAngelRespawn(hero);
         }
     }
 
@@ -22,7 +24,9 @@ public class Spawner extends Angel {
     public void visit(Pyromancer hero) {
         if (hero.getHp() <= 0) {
             hero.setHp(150);
+            //hero.addXp(-hero.getXp());
             observer.notifyAngelHelp(this, hero);
+            observer.notifyAngelRespawn(hero);
         }
     }
 
@@ -30,7 +34,9 @@ public class Spawner extends Angel {
     public void visit(Rogue hero) {
         if (hero.getHp() <= 0) {
             hero.setHp(180);
+            //hero.addXp(-hero.getXp());
             observer.notifyAngelHelp(this, hero);
+            observer.notifyAngelRespawn(hero);
         }
     }
 
@@ -38,7 +44,9 @@ public class Spawner extends Angel {
     public void visit(Wizard hero) {
         if (hero.getHp() <= 0) {
             hero.setHp(120);
+            //hero.addXp(-hero.getXp());
             observer.notifyAngelHelp(this, hero);
+            observer.notifyAngelRespawn(hero);
         }
     }
 

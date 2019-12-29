@@ -11,6 +11,6 @@ public class Context {
     }
 
     public void executeStrategy(Hero hero) {
-        strategy.applyStrategy(hero);
+        hero.acceptStrategy(strategy);
     }
 }

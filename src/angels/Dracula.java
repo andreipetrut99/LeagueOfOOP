@@ -15,6 +15,9 @@ public class Dracula extends Angel {
         hero.changeModifiers(-0.3f);
         hero.setInstantDamage(40);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
 
     @Override
@@ -22,6 +25,9 @@ public class Dracula extends Angel {
         hero.changeModifiers(-0.2f);
         hero.setInstantDamage(60);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
 
     @Override
@@ -29,6 +35,9 @@ public class Dracula extends Angel {
         hero.changeModifiers(-0.1f);
         hero.setInstantDamage(35);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
 
     @Override
@@ -36,6 +45,9 @@ public class Dracula extends Angel {
         hero.changeModifiers(-0.4f);
         hero.setInstantDamage(20);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
     @Override
     public String toString() {

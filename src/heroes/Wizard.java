@@ -4,6 +4,7 @@ import angels.Angel;
 import strategies.Context;
 import strategies.DeffenseStrategies;
 import strategies.OffensiveStrategies;
+import strategies.Strategy;
 
 import static commons.WizardModifiers.DEFLECT_MAX_PERCENT;
 import static commons.WizardModifiers.DEFLECT_MIN_PERCENT;
@@ -80,8 +81,8 @@ public class Wizard extends Hero {
         float drainDamage = drainPercent * (Math.min(MIN_DRAIN * enemy.getMaxHp(), enemy.getHp()));
         float deflectDamage = deflectPercent * enemy.getUnmodifiedDamage(landType);
         if (landType == 'D') {
-            drainDamage = drainDamage * LAND_MODIFIER;
-            deflectDamage = deflectDamage * LAND_MODIFIER;
+            drainDamage = Math.round(drainDamage * LAND_MODIFIER);
+            deflectDamage = Math.round(deflectDamage * LAND_MODIFIER);
         }
 
         enemy.setInstantDamage(Math.round(drainDamage) + Math.round(deflectDamage));
@@ -126,6 +127,9 @@ public class Wizard extends Hero {
         angel.visit(this);
     }
 
+    public void acceptStrategy(Strategy strategy) {
+        strategy.applyStrategy(this);
+    }
     @Override
     public String toString() {
         return "Wizard";

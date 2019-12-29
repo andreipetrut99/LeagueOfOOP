@@ -12,30 +12,30 @@ public class LevelUpAngel extends Angel {
 
     @Override
     public void visit(Knight hero) {
+        observer.notifyAngelHelp(this, hero);
         hero.changeModifiers(0.1f);
         hero.addXp(hero.getXpLevelUp() - hero.getXp());
-        observer.notifyAngelHelp(this, hero);
     }
 
     @Override
     public void visit(Pyromancer hero) {
+        observer.notifyAngelHelp(this, hero);
         hero.changeModifiers(0.2f);
         hero.addXp(hero.getXpLevelUp() - hero.getXp());
-        observer.notifyAngelHelp(this, hero);
     }
 
     @Override
     public void visit(Rogue hero) {
+        observer.notifyAngelHelp(this, hero);
         hero.changeModifiers(0.15f);
         hero.addXp(hero.getXpLevelUp() - hero.getXp());
-        observer.notifyAngelHelp(this, hero);
     }
 
     @Override
     public void visit(Wizard hero) {
+        observer.notifyAngelHelp(this, hero);
         hero.changeModifiers(0.25f);
         hero.addXp(hero.getXpLevelUp() - hero.getXp());
-        observer.notifyAngelHelp(this, hero);
     }
 
     @Override

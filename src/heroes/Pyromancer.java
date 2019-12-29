@@ -4,6 +4,7 @@ import angels.Angel;
 import strategies.Context;
 import strategies.DeffenseStrategies;
 import strategies.OffensiveStrategies;
+import strategies.Strategy;
 
 import static commons.PyromancerModifiers.FIREBLAST_DAMAGE_PER_LEVEL;
 import static commons.PyromancerModifiers.FIREBLAST_DAMAGE;
@@ -48,9 +49,9 @@ public class Pyromancer extends Hero {
                 + (IGNITE_PASSIVE_PER_LEVEL * this.getLevel()));
 
         if (landType == 'V') {
-            fireblastDamage = fireblastDamage * LAND_MODIFIER;
-            ignitePassiveDamage = ignitePassiveDamage * LAND_MODIFIER;
-            igniteInstantDamage = igniteInstantDamage * LAND_MODIFIER;
+            fireblastDamage = Math.round(fireblastDamage * LAND_MODIFIER);
+            ignitePassiveDamage = Math.round(ignitePassiveDamage * LAND_MODIFIER);
+            igniteInstantDamage = Math.round(igniteInstantDamage * LAND_MODIFIER);
         }
 
          if (enemy instanceof  Rogue) {
@@ -91,6 +92,9 @@ public class Pyromancer extends Hero {
         }
         return (FIREBLAST_DAMAGE + (FIREBLAST_DAMAGE_PER_LEVEL * this.getLevel()))
                 + (IGNITE_INSTANT + (IGNITE_INSTANT_PER_LEVEL * this.getLevel()));
+    }
+    public void acceptStrategy(Strategy strategy) {
+        strategy.applyStrategy(this);
     }
 
     /**

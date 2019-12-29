@@ -49,17 +49,10 @@ public class GameLogic {
         this.createHeroes();
         outputFile.printLine("~~ Round 1 ~~");
         for (int round = 0; round < rounds; round++) {
-
-            if (angelsNumber.get(round) != 0) {
-                currentAngels = angelFactory.createAngels(inputAngels.get(round));
-            } else {
-                currentAngels = null;
-            }
-
-            playStrategies();
             moveHeroes(moves.get(0));
             moves.remove(0);
             addOvertimeDamage();
+            playStrategies();
             decreaseIncapacitation();
 
             Hero hero1, hero2;
@@ -78,25 +71,31 @@ public class GameLogic {
                                     terrainType[hero1.getX()].charAt(hero2.getY()));
                             level = hero2.getLevel();
 
-                            if (!hero1.isAlive()) {
-                                hero2.addXp(calcXp(hero1.getLevel(),
-                                        hero2.getLevel()));
-                            }
-
                             if (!hero2.isAlive()) {
                                 observer.notifyDeath(hero1, hero2);
-                                hero1.addXp(calcXp(level, hero1.getLevel()));
                             }
 
                             if (!hero1.isAlive()) {
                                 observer.notifyDeath(hero2, hero1);
                             }
+
+                            if (!hero1.isAlive() && hero2.isAlive()) {
+                                hero2.addXp(calcXp(hero1.getLevel(),
+                                        hero2.getLevel()));
+                            }
+
+                            if (!hero2.isAlive() && hero1.isAlive()) {
+                                hero1.addXp(calcXp(level, hero1.getLevel()));
+                            }
                         }
                     }
                 }
             }
+
             if (angelsNumber.get(round) != 0) {
-                playAngels(currentAngels);
+                angelFactory.createAngels(inputAngels.get(round), heroes);
+            } else {
+                currentAngels = null;
             }
 
             outputFile.printLine("");
@@ -111,19 +110,6 @@ public class GameLogic {
         for (Hero hero : heroes) {
             if (!hero.isIncapacitated() && hero.isAlive()) {
                 hero.applyStrategy();
-            }
-        }
-    }
-    
-    private void playAngels(List<Angel> angelList) {
-        for (Angel angel : angelList) {
-            for (Hero hero : heroes) {
-                if (angel.getX() == hero.getX()
-                        && angel.getY() == hero.getY()) {
-                    if (hero.isAlive()) {
-                        hero.acceptAngel(angel);
-                    }
-                }
             }
         }
     }

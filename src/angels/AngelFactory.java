@@ -1,5 +1,7 @@
 package angels;
 
+import heroes.Hero;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,55 +19,69 @@ public class AngelFactory {
         return instance;
     }
 
-    public List<Angel> createAngels(List<String> stringList) {
-        angels = new LinkedList<Angel>();
+    public void createAngels(List<String> stringList, List<Hero> heroes) {
+        Angel angel = null;
         for (String string : stringList) {
             String[] info = string.split(",");
             switch (info[0]) {
                 case "DamageAngel":
-                    angels.add(new DamageAngel(Integer.parseInt(info[1]),
-                            Integer.parseInt(info[2])));
+                    angel = new DamageAngel(Integer.parseInt(info[1]),
+                            Integer.parseInt(info[2]));
                     break;
                 case "DarkAngel":
-                    angels.add(new DarkAngel(Integer.parseInt(info[1]),
+                    angel = (new DarkAngel(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "Dracula":
-                    angels.add(new Dracula(Integer.parseInt(info[1]),
+                    angel = (new Dracula(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "GoodBoy":
-                    angels.add(new GoodBoy(Integer.parseInt(info[1]),
+                    angel = (new GoodBoy(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "LevelUpAngel":
-                    angels.add(new LevelUpAngel(Integer.parseInt(info[1]),
+                    angel = (new LevelUpAngel(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "LifeGiver":
-                    angels.add(new LifeGiver(Integer.parseInt(info[1]),
+                    angel = (new LifeGiver(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "SmallAngel":
-                    angels.add(new SmallAngel(Integer.parseInt(info[1]),
+                    angel = (new SmallAngel(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "Spawner":
-                    angels.add(new Spawner(Integer.parseInt(info[1]),
+                    angel = (new Spawner(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "TheDoomer":
-                    angels.add(new TheDoomer(Integer.parseInt(info[1]),
+                    angel = (new TheDoomer(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 case "XPAngel":
-                    angels.add(new XPAngel(Integer.parseInt(info[1]),
+                    angel = (new XPAngel(Integer.parseInt(info[1]),
                             Integer.parseInt(info[2])));
                     break;
                 default:
                     System.out.println("Angel type does not exist!");
             }
+            playAngel(angel, heroes);
         }
-        return angels;
+    }
+
+    private void playAngel(Angel angel, List<Hero> heroes) {
+            for (Hero hero : heroes) {
+                if (angel.getX() == hero.getX()
+                        && angel.getY() == hero.getY()) {
+                    if (hero.isAlive()) {
+                        hero.acceptAngel(angel);
+                    }
+                    if (!hero.isAlive() && angel instanceof Spawner) {
+                        hero.acceptAngel(angel);
+                    }
+                }
+            }
     }
 }

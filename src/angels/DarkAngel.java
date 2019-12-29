@@ -15,24 +15,36 @@ public class DarkAngel extends Angel {
     public void visit(Pyromancer hero) {
         hero.setInstantDamage(30);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
 
     @Override
     public void visit(Knight hero) {
         hero.setInstantDamage(40);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
 
     @Override
     public void visit(Rogue hero) {
         hero.setInstantDamage(10);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
 
     @Override
     public void visit(Wizard hero) {
         hero.setInstantDamage(20);
         observer.notifyAngelHit(this, hero);
+        if (!hero.isAlive()) {
+            observer.notifyAngelDeath(hero);
+        }
     }
 
     @Override

@@ -44,4 +44,9 @@ public class TheGreatWizard {
         gameInputLoader.printLine("Player " + hero.toString() + " " + hero.getId()
                 + " was killed by an angel");
     }
+
+    public void notifyAngelRespawn(Hero hero) {
+        gameInputLoader.printLine("Player " + hero.toString() + " " + hero.getId()
+                + " was brought to life by an angel");
+    }
 }

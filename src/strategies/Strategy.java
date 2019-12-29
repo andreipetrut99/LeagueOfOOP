@@ -3,10 +3,8 @@ package strategies;
 import heroes.*;
 
 public abstract class Strategy {
-    void applyStrategy(Knight hero) {}
-    void applyStrategy(Pyromancer hero) {}
-    void applyStrategy(Rogue hero) {}
-    void applyStrategy(Wizard hero) {}
-    void applyStrategy(Hero hero) {}
-
+    public void applyStrategy(Knight hero) {}
+    public void applyStrategy(Pyromancer hero) {}
+    public void applyStrategy(Rogue hero) {}
+    public void applyStrategy(Wizard hero) {}
 }

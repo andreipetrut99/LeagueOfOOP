@@ -12,25 +12,41 @@ public class LifeGiver extends Angel {
 
     @Override
     public void visit(Knight hero) {
-        hero.setInstantDamage(-100);
+        if (hero.getHp() + 100 > hero.getMaxHp()) {
+            hero.setHp(hero.getMaxHp());
+        } else {
+            hero.setInstantDamage(-100);
+        }
         observer.notifyAngelHelp(this, hero);
     }
 
     @Override
     public void visit(Pyromancer hero) {
-        hero.setInstantDamage(-80);
+        if (hero.getHp() + 80 > hero.getMaxHp()) {
+            hero.setHp(hero.getMaxHp());
+        } else {
+            hero.setInstantDamage(-80);
+        }
         observer.notifyAngelHelp(this, hero);
     }
 
     @Override
     public void visit(Rogue hero) {
-        hero.setInstantDamage(-90);
+        if (hero.getHp() + 90 > hero.getMaxHp()) {
+            hero.setHp(hero.getMaxHp());
+        } else {
+            hero.setInstantDamage(-90);
+        }
         observer.notifyAngelHelp(this, hero);
     }
 
     @Override
     public void visit(Wizard hero) {
-        hero.setInstantDamage(-120);
+        if (hero.getHp() + 120 > hero.getMaxHp()) {
+            hero.setHp(hero.getMaxHp());
+        } else {
+            hero.setInstantDamage(-120);
+        }
         observer.notifyAngelHelp(this, hero);
     }
 
