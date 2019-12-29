@@ -1,4 +1,6 @@
-#### `League of OOP`
+#### `League of OOP` 
+
+---- ETAPA 1 ----
 Acest proiect reprezinta o implementare a unui joc MMO minimalist,
 intr-un univers 2D, implementat in Java avand ca obiective fundamentarea
 practica a constructorilor si agregarii sau mostenirii, familiarizarea cu
@@ -29,10 +31,30 @@ Pentru o descriere explicita a metodelor si intelegerea lor verificati
 javadoc.
 
 Pe parcursul rezolvarii proiectului am salvat codul, in mai multe etape, pe
-GitHub, pe un repository privat. Fiind nou in utilizarea Git, nu stiam de 
-conceptul de tree, credeam ca se da push doar pe master, am aflat prea tarziu
-ca ar trebui mai multe branch-uri. O sa tin cont de acest aspect pe viitor.
-Totodata, gasisem pe net ca la commit se pune titlu si descriere, asa ca am
-crezut ca trebuie sa numerotez commiturile si sa scriu in descriere ce se 
-intampla, deci la fiecare dintre primele commituri veti gasi un titlu amiguu
-dar care este insotit de o descriere. 
+GitHub, pe un repository privat.
+
+---- ETAPA 2 ---- 
+Etapa a doua a acestui proiect vine in completarea jocului cu noi personaje:
+ingeri, strategii si un admin.
+
+Am implementat ingerii in pachetul angels, acestia fiind creati cu Factory
+Pattern si actionand asupra eroilor prin Visitor Pattern. Clasa Angel 
+cuprinde informatiile comune tuturor claselor de ingeri care o mostenesc:
+pozitia si metodele abstracte de vizitare. 
+
+Marele Magician sau adminul este implementat ca o instanta singleton care
+este anuntata de fiecare data cand se intampla un eveniment important, prin
+Observer Pattern. In fiecare metoda care produce un efect interesant pentru 
+admin se gaseste o apelare a uneia dintre metodele notify. Scrierea in
+fisierul de output se face pe parcurs, dupa fiecare runda.
+
+Strategiile sunt introduse in joc prin folosirea Pattern-ului Strategy astfel:
+fiecare erou isi alege contextul in clasa de baza, adica strategia defensiva
+sau ofensiva iar apoi aceasta este aplicata prin Visitor Pattern, in functie 
+de tipul instantei la runtime. 
+
+Pentru o descriere explicita a metodelor si intelegerea lor verificati
+javadoc si codul sursa.
+
+Pe parcursul rezolvarii acestei parti am salvat codul, in mai multe etape, pe
+GitHub, pe un repository privat.
